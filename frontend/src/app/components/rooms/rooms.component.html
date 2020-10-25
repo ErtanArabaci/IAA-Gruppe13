@@ -1,0 +1,6 @@
+<!-- Liste der Räume -->
+<app-room-list [rooms]="rooms" (selectRoom)="onSelectRoom($event)"></app-room-list>
+
+<app-room-form *ngIf="selectedRoom" [room]="selectedRoom"
+               (cancel)="onCancelEdit()"
+               (save)="onSave($event)"></app-room-form>

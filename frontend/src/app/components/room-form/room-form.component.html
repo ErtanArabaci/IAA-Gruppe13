@@ -1,0 +1,10 @@
+<form (ngSubmit)="onSave()">
+  Gebäude: {{ room.building }}<br>
+  Raumnummer: {{ room.roomNumber }}<br>
+  Sitzplatzanzahl:
+  <input name="seats" type="number"[(ngModel)]="room.seats"><br>
+  Beamer vorhanden?:
+  <input name="projectorPresent" type="checkbox" [(ngModel)]="room.projectorPresent"><br>
+  <button type="submit">Speichern</button>
+  <button type="button" (click)="onCancel()">Abbrechen</button>
+</form>
