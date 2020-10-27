@@ -1,5 +1,5 @@
 export interface ClubMember {
-  clubMemberID: number;
+  clubMemberId: number;
   clubMemberName: string;
   clubMemberAdress: string;
   clubMemberBirthday: any;
