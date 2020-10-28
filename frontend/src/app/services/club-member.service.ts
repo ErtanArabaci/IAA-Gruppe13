@@ -15,6 +15,6 @@ export class ClubMemberService {
   }
 
   updateClubMembers(clubMember: ClubMember): Observable<void>{
-    return this.http.put<void>('/rest/rooms/$clubMember.clubMemberId}' , clubMember);
+    return this.http.put<void>( '/rest/club-members/${clubMember.clubMemberID}', clubMember)
   }
 }

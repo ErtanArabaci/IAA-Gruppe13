@@ -1,3 +1,7 @@
 <h1>club members component html</h1>
 
 <app-club-member-list [clubMembers]="clubMembers" (selectClubMember)="onSelectClubMember($event)"></app-club-member-list>
+
+<app-club-member-form *ngIf="selectedClubMember" [clubMember]="selectedClubMember"
+                      (cancel)="onCancelEdit()"
+                      (save)="onSave($event)"></app-club-member-form>

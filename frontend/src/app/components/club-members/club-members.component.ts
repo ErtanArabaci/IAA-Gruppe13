@@ -28,5 +28,16 @@ export class ClubMembersComponent implements OnInit {
     this.selectedClubMember = {...clubMember};
   }
 
+  onCancelEdit() {
+    this.selectedClubMember = undefined;
+  }
+
+  onSave(clubMember: ClubMember) {
+    this.clubMemberService.updateClubMembers(clubMember).subscribe( () => {
+      this.selectedClubMember = undefined;
+      this.reloadClubMemberList();
+    } )
+  }
+
 
 }
