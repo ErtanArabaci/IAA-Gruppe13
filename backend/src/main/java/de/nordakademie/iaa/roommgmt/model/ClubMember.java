@@ -20,6 +20,7 @@ public class ClubMember implements Serializable {
     private String clubMemberAdress;
     private Date clubMemberBirthday;
     private Date entranceDate;
+    private Date terminationDate;
     private Date exitDate;
     private MEMBERSHIP_TYPE membership_type;
     private Float annualFee;
@@ -73,6 +74,16 @@ public class ClubMember implements Serializable {
 
     public void setEntranceDate(Date entranceDate) {
         this.entranceDate = entranceDate;
+    }
+
+    @Column(name = "TERMINATION_DATE")
+    @Temporal(TemporalType.DATE)
+    public Date getTerminationDate() {
+        return terminationDate;
+    }
+
+    public void setTerminationDate(Date terminationDate) {
+        this.terminationDate = terminationDate;
     }
 
     @Column(name = "EXIT_DATE")

@@ -4,6 +4,7 @@ export interface ClubMember {
   clubMemberAdress: string;
   clubMemberBirthday: any;
   entranceDate: any;
+  terminationDate: any;
   exitDate: any;
   membership_type: any;
   annualFee: number;
