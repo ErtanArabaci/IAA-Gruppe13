@@ -1,12 +1,8 @@
 package de.nordakademie.iaa.roommgmt.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
 /**
  * ClubMember entity.
@@ -27,7 +23,7 @@ public class ClubMember implements Serializable {
     private Date exitDate;
     private MEMBERSHIP_TYPE membership_type;
     private Float annualFee;
-    private List<AnnualPayment> annualPaymentList;
+    //private List<AnnualPayment> annualPaymentList;
     private String iban;
     private ClubMember firstEnteredFamilyClubMember;
 
@@ -60,6 +56,7 @@ public class ClubMember implements Serializable {
     }
 
     @Column(name = "CLUBMEMBER_BIRTHDAY", nullable = false)
+    @Temporal(TemporalType.DATE)
     public Date getClubMemberBirthday() {
         return clubMemberBirthday;
     }
@@ -69,6 +66,7 @@ public class ClubMember implements Serializable {
     }
 
     @Column(name = "ENTRANCE_DATE", nullable = false)
+    @Temporal(TemporalType.DATE)
     public Date getEntranceDate() {
         return entranceDate;
     }
@@ -77,7 +75,8 @@ public class ClubMember implements Serializable {
         this.entranceDate = entranceDate;
     }
 
-    @Column(name = "EXIT_DATE", nullable = false)
+    @Column(name = "EXIT_DATE")
+    @Temporal(TemporalType.DATE)
     public Date getExitDate() {
         return exitDate;
     }
@@ -87,6 +86,7 @@ public class ClubMember implements Serializable {
     }
 
     @Column(name = "MEMBERSHIP_TYPE", nullable = false)
+    @Enumerated(EnumType.STRING)
     public MEMBERSHIP_TYPE getMembership_type() {
         return membership_type;
     }
@@ -104,14 +104,14 @@ public class ClubMember implements Serializable {
         this.annualFee = annualFee;
     }
 
-    @Column(name = "ANNUAL_PAYMENT_LIST", nullable = false)
+    /*@Column(name = "ANNUAL_PAYMENT_LIST")
     public List<AnnualPayment> getAnnualPaymentList() {
         return annualPaymentList;
     }
 
     public void setAnnualPaymentList(List<AnnualPayment> annualPaymentList) {
         this.annualPaymentList = annualPaymentList;
-    }
+    }*/
 
     @Column(name = "IBAN", nullable = false)
     public String getIban() {
@@ -122,7 +122,7 @@ public class ClubMember implements Serializable {
         this.iban = iban;
     }
 
-    @Column(name = "FIRST_ENTERED_FAMILYMEMBER", nullable = false)
+    @Column(name = "FIRST_ENTERED_FAMILYCLUBMEMBER")
     public ClubMember getFirstEnteredFamilyClubMember() {
         return firstEnteredFamilyClubMember;
     }

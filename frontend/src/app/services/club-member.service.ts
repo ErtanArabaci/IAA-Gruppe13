@@ -11,7 +11,7 @@ export class ClubMemberService {
   constructor(private http: HttpClient) { }
 
   loadClubMembers(): Observable<ClubMember[]>{
-    return this.http.get<ClubMember[]>('/rest/clubMembers');
+    return this.http.get<ClubMember[]>('/rest/club-members');
   }
 
   updateClubMembers(clubMember: ClubMember): Observable<void>{

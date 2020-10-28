@@ -1,9 +1,8 @@
-import {Component, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {ClubMember} from "../../model/clubMember";
-import {EventEmitter} from "events";
 
 @Component({
-  selector: 'app-member-list',
+  selector: 'app-club-member-list',
   templateUrl: './club-member-list.component.html',
   styleUrls: ['./club-member-list.component.css']
 })

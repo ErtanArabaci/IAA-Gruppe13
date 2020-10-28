@@ -23,6 +23,9 @@ import {ClubMemberFormComponent} from './components/club-member-form/club-member
     BrowserModule,
     HttpClientModule,
     FormsModule
-  ]
+  ],
+  providers: [],
+  exports: [],
+  bootstrap: [ClubMemberAppComponent]
 })
 export class ClubMemberAppModule { }

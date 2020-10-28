@@ -24,7 +24,7 @@ public class ClubMemberDAO {
 
     public List<ClubMember> listClubMembers() { return entityManager.createQuery( "select clubMember from ClubMember clubMember").getResultList();}
 
-    public ClubMember loadClubMember(long id) { return entityManager.find(ClubMember.class, id);}
+    public ClubMember loadClubMember(Long id) { return entityManager.find(ClubMember.class, id);}
 
     @PersistenceContext
     public void setEntityManager(EntityManager entityManager) { this.entityManager = entityManager;}
