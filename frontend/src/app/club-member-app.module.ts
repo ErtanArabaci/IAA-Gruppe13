@@ -8,6 +8,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
 import {ClubMembersComponent} from './components/club-members/club-members.component';
 import {ClubMemberFormComponent} from './components/club-member-form/club-member-form.component';
+import {ClubMemberAppRoutingModule} from './club-member-app-routing.module';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import {ClubMemberFormComponent} from './components/club-member-form/club-member
     AppModule,
     BrowserModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ClubMemberAppRoutingModule
   ],
   providers: [],
   exports: [],
