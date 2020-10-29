@@ -5,6 +5,7 @@ import {ClubMemberListComponent} from "./components/club-member-list/club-member
 import {ClubMembersComponent} from "./components/club-members/club-members.component";
 
 const routes: Routes = [
+  {path: 'club-member-form/:id', component: ClubMemberFormComponent},
   {path: 'club-member-form', component: ClubMemberFormComponent},
   {path: 'club-members', component: ClubMembersComponent},
   {path: 'club-member-list', component: ClubMemberListComponent},

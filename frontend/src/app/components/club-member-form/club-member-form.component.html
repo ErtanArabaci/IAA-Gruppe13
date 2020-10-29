@@ -1,4 +1,5 @@
-<div class="container">
+testform
+<div class="container" *ngIf="clubMember">
   <form (ngSubmit)="onSave()">
       Mitgliedsnummer: {{ clubMember.clubMemberId}}<br>
       Name: {{ clubMember.clubMemberName}}<br>

@@ -1,6 +1,5 @@
 <div class="container">
 
-
   <h3>Mitgliederliste</h3>
 
   <nav>
@@ -19,9 +18,10 @@
       <th>Datum Austritt</th>
       <th>Mitgliedsart</th>
       <th>aktueller Jahresbeitrag</th>
+
     </tr>
     </thead>
-    <tr *ngFor="let clubMember of clubMembers" (dblclick)="onSelect(clubMember)">
+    <tr *ngFor="let clubMember of clubMembers">
       <td>{{ clubMember.clubMemberId}}</td>
       <td>{{ clubMember.clubMemberName}}</td>
       <td>{{ clubMember.clubMemberAdress}}</td>
@@ -31,8 +31,8 @@
       <td>{{ clubMember.exitDate | date: 'dd.MM.yyyy'}}</td>
       <td>{{ clubMember.membership_type}}</td>
       <td>{{ clubMember.annualFee}}</td>
+      <td> <a [routerLink]="[ '/club-member-form/{{clubMember.clubMemberId}}' , clubMember]",  class="btn btn-primary" ></a> </td>
 
     </tr>
   </table>
-
 </div>

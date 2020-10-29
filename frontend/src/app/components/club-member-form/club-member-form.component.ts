@@ -1,5 +1,9 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {ClubMember} from "../../model/clubMember";
+import {ActivatedRoute} from '@angular/router';
+import {Location} from '@angular/common';
+import {ClubMemberService} from "../../services/club-member.service";
+
 
 @Component({
   selector: 'app-club-member-form',
@@ -7,12 +11,18 @@ import {ClubMember} from "../../model/clubMember";
   styleUrls: ['./club-member-form.component.css']
 })
 export class ClubMemberFormComponent implements OnInit {
-  @Input() clubMember!: ClubMember;
+  clubMember!: ClubMember;
 
   @Output() cancel = new EventEmitter();
   @Output() save = new EventEmitter<ClubMember>();
 
-  constructor() { }
+
+  constructor(
+    private route: ActivatedRoute,
+    private clubMemberService: ClubMemberService,
+    private location: Location
+  ) {
+  }
 
   ngOnInit(): void {
   }

@@ -15,7 +15,7 @@ export class ClubMemberListComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSelect(clubMember: ClubMember): void{
+  onSelect(clubMember: ClubMember): void {
     this.selectClubMember.emit(clubMember);
   }
 
