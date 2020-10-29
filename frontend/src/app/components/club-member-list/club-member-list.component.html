@@ -1,28 +1,31 @@
 <h3> Mitgliederliste (Club Member List Component) </h3>
 
-<table border="1">
-  <tr>
-    <th>Mitgliedsnummer</th>
-    <th>Name</th>
-    <th>Adresse</th>
-    <th>Geburtstag</th>
-    <th>Datum Eintritt</th>
-    <th>Datum Kündigung</th>
-    <th>Datum Austritt</th>
-    <th>Mitgliedsart</th>
-    <th>aktueller Jahresbeitrag</th>
+<div class="container">
+  <table class="table">
+    <thead class="thead-dark">
+    <tr>
+      <th>Mitgliedsnummer</th>
+      <th>Name</th>
+      <th>Adresse</th>
+      <th>Geburtstag</th>
+      <th>Datum Eintritt</th>
+      <th>Datum Kündigung</th>
+      <th>Datum Austritt</th>
+      <th>Mitgliedsart</th>
+      <th>aktueller Jahresbeitrag</th>
+    </tr>
+    </thead>
+    <tr *ngFor="let clubMember of clubMembers" (dblclick)="onSelect(clubMember)">
+      <td>{{ clubMember.clubMemberId}}</td>
+      <td>{{ clubMember.clubMemberName}}</td>
+      <td>{{ clubMember.clubMemberAdress}}</td>
+      <td>{{ clubMember.clubMemberBirthday | date: 'dd.MM.yyyy'}}</td>
+      <td>{{ clubMember.entranceDate | date: 'dd.MM.yyyy'}}</td>
+      <td>{{ clubMember.terminationDate | date: 'dd.MM.yyyy'}}</td>
+      <td>{{ clubMember.exitDate | date: 'dd.MM.yyyy'}}</td>
+      <td>{{ clubMember.membership_type}}</td>
+      <td>{{ clubMember.annualFee}}</td>
+    </tr>
+  </table>
 
-
-  </tr>
-  <tr *ngFor="let clubMember of clubMembers" (dblclick)="onSelect(clubMember)">
-    <td>{{ clubMember.clubMemberId}}</td>
-    <td>{{ clubMember.clubMemberName}}</td>
-    <td>{{ clubMember.clubMemberAdress}}</td>
-    <td>{{ clubMember.clubMemberBirthday | date: 'dd.MM.yyyy'}}</td>
-    <td>{{ clubMember.entranceDate | date: 'dd.MM.yyyy'}}</td>
-    <td>{{ clubMember.terminationDate | date: 'dd.MM.yyyy'}}</td>
-    <td>{{ clubMember.exitDate | date: 'dd.MM.yyyy'}}</td>
-    <td>{{ clubMember.membership_type}}</td>
-    <td>{{ clubMember.annualFee}}</td>
-  </tr>
-</table>
+</div>

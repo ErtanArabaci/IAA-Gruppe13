@@ -1,18 +1,20 @@
-<form (ngSubmit)="onSave()">
-  Mitgliedsnummer: {{ clubMember.clubMemberId}}<br>
-  Name: {{ clubMember.clubMemberName}}<br>
-  Adresse:
-  <input name="clubMemberAdress" type="string" [(ngModel)]="clubMember.clubMemberAdress"><br>
-  Geburtstag: {{ clubMember.clubMemberBirthday}}<br>
-  Datum Eintritt: {{clubMember.entranceDate}}<br>
-  Datum Kündigung:
-  <input name="terminationDate" type="date" [(ngModel)]="clubMember.terminationDate"><br>
-  Datum Austritt:
-  <input name="exitDate" type="date" [(ngModel)]="clubMember.exitDate"><br>
-  Mitgliedsart:
-  <input name="membership_Type" type="string" [(ngModel)]="clubMember.membership_type"><br>
-  Aktueller Jahresbeitrag:
-  <input name="annualFee" type="number" [(ngModel)]="clubMember.annualFee"><br>
-  <button type="submit">Speichern</button>
-  <button type="button" (click)="onCancel()">Abbrechen</button>
-</form>
+<div class="container">
+    <form (ngSubmit)="onSave()">
+      Mitgliedsnummer: {{ clubMember.clubMemberId}}<br>
+      Name: {{ clubMember.clubMemberName}}<br>
+      Adresse:
+      <input name="clubMemberAdress" type="string" [(ngModel)]="clubMember.clubMemberAdress"><br>
+      Geburtstag: {{ clubMember.clubMemberBirthday}}<br>
+      Datum Eintritt: {{clubMember.entranceDate}}<br>
+      Datum Kündigung:
+      <input name="terminationDate" type="date" [(ngModel)]="clubMember.terminationDate"><br>
+      Datum Austritt:
+      <input name="exitDate" type="date" [(ngModel)]="clubMember.exitDate"><br>
+      Mitgliedsart:
+      <input name="membership_Type" type="string" [(ngModel)]="clubMember.membership_type"><br>
+      Aktueller Jahresbeitrag:
+      <input name="annualFee" type="number" [(ngModel)]="clubMember.annualFee"><br>
+      <button type="submit">Speichern</button>
+      <button type="button" (click)="onCancel()">Abbrechen</button>
+    </form>
+</div>
