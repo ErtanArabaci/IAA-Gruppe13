@@ -18,10 +18,10 @@
     <td>{{ clubMember.clubMemberId}}</td>
     <td>{{ clubMember.clubMemberName}}</td>
     <td>{{ clubMember.clubMemberAdress}}</td>
-    <td>{{ clubMember.clubMemberBirthday}}</td>
-    <td>{{ clubMember.entranceDate}}</td>
-    <td>{{ clubMember.terminationDate}}</td>
-    <td>{{ clubMember.exitDate}}</td>
+    <td>{{ clubMember.clubMemberBirthday | date: 'dd.MM.yyyy'}}</td>
+    <td>{{ clubMember.entranceDate | date: 'dd.MM.yyyy'}}</td>
+    <td>{{ clubMember.terminationDate | date: 'dd.MM.yyyy'}}</td>
+    <td>{{ clubMember.exitDate | date: 'dd.MM.yyyy'}}</td>
     <td>{{ clubMember.membership_type}}</td>
     <td>{{ clubMember.annualFee}}</td>
   </tr>

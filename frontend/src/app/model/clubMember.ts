@@ -2,10 +2,10 @@ export interface ClubMember {
   clubMemberId: number;
   clubMemberName: string;
   clubMemberAdress: string;
-  clubMemberBirthday: any;
-  entranceDate: any;
-  terminationDate: any;
-  exitDate: any;
+  clubMemberBirthday: Date;
+  entranceDate: Date;
+  terminationDate: Date;
+  exitDate: Date;
   membership_type: any;
   annualFee: number;
   annualPaymentList: any;
