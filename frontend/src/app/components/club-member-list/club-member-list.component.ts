@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {ClubMember} from "../../model/clubMember";
 
+
 @Component({
   selector: 'app-club-member-list',
   templateUrl: './club-member-list.component.html',
@@ -9,6 +10,7 @@ import {ClubMember} from "../../model/clubMember";
 export class ClubMemberListComponent implements OnInit {
   @Input() clubMembers: ClubMember[] = [];
   @Output() selectClubMember = new EventEmitter<ClubMember>();
+  term: any;
 
   constructor() { }
 

@@ -9,14 +9,14 @@ import {FormsModule} from "@angular/forms";
 import {ClubMembersComponent} from './components/club-members/club-members.component';
 import {ClubMemberFormComponent} from './components/club-member-form/club-member-form.component';
 import {ClubMemberAppRoutingModule} from './club-member-app-routing.module';
-
+import {Ng2SearchPipeModule} from "ng2-search-filter";
 
 @NgModule({
   declarations: [
     ClubMemberAppComponent,
     ClubMemberListComponent,
     ClubMembersComponent,
-    ClubMemberFormComponent
+    ClubMemberFormComponent,
   ],
   imports: [
     CommonModule,
@@ -24,7 +24,8 @@ import {ClubMemberAppRoutingModule} from './club-member-app-routing.module';
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    ClubMemberAppRoutingModule
+    ClubMemberAppRoutingModule,
+    Ng2SearchPipeModule
   ],
   providers: [],
   exports: [],

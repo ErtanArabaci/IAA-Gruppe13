@@ -2,9 +2,11 @@
 
   <h3>Mitgliederliste</h3>
 
-  <nav>
-    <a routerLink="/club-member-form">Form</a>
-  </nav>
+
+  <input type="text" class="form-control" placeholder="Suche hier" [(ngModel)]="term">
+
+  <br>
+
 
   <table class="table">
     <thead class="thead-dark">
@@ -22,7 +24,7 @@
 
     </tr>
     </thead>
-    <tr *ngFor="let clubMember of clubMembers">
+    <tr *ngFor="let clubMember of clubMembers | filter:term">
       <td>{{ clubMember.clubMemberId}}</td>
       <td>{{ clubMember.clubMemberName}}</td>
       <td>{{ clubMember.clubMemberAdress}}</td>
