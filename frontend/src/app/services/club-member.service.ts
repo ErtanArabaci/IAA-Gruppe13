@@ -17,11 +17,12 @@ export class ClubMemberService {
   }
 
   updateClubMembers(clubMember: ClubMember): Observable<void>{
-    return this.http.put<void>( '/rest/club-members/${clubMember.clubMemberID}', clubMember)
+    return this.http.put<void>( '/rest/club-members/${clubMember.clubMemberID}', clubMember);
   }
 
   getClubMember(id: number): Observable<ClubMember> {
-    return this.http.get<ClubMember[]>('/rest/club-members/')
+    console.log(id);
+    return this.http.get<ClubMember>('/rest/club-members');
   }
 
 

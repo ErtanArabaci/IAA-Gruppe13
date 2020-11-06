@@ -18,6 +18,7 @@
       <th>Datum Austritt</th>
       <th>Mitgliedsart</th>
       <th>aktueller Jahresbeitrag</th>
+      <th>Action</th>
 
     </tr>
     </thead>
@@ -31,7 +32,8 @@
       <td>{{ clubMember.exitDate | date: 'dd.MM.yyyy'}}</td>
       <td>{{ clubMember.membership_type}}</td>
       <td>{{ clubMember.annualFee}}</td>
-      <td> <a [routerLink]="[ '/club-member-form/{{clubMember.clubMemberId}}' , clubMember]",  class="btn btn-primary" ></a> </td>
+      <td> <a routerLink="/club-member-form/{{clubMember.clubMemberId}}"  class="btn btn-primary" ></a> </td>
+      <!--<td> <a [routerLink]="[ '/club-member-form/{{clubMember.clubMemberId}}' , clubMember]" routerLinkActive="Active" ,  class="btn btn-primary" ></a> </td>-->
 
     </tr>
   </table>
