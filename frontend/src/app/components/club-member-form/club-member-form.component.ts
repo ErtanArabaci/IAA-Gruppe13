@@ -31,7 +31,9 @@ export class ClubMemberFormComponent implements OnInit {
   getClubMember(): void {
     const id = this.route.snapshot.paramMap.get('id');
     this.clubMemberService.getClubMember(id as unknown as number)
-      .subscribe(clubMember => this.clubMember = clubMember);
+      .subscribe(clubMember => {
+        this.clubMember = clubMember;
+      });
   }
 
   onCancel(): void {

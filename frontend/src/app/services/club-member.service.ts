@@ -22,7 +22,7 @@ export class ClubMemberService {
 
   getClubMember(id: number): Observable<ClubMember> {
     console.log(id);
-    return this.http.get<ClubMember>('/rest/club-members?clubMemberId=$id');
+    return this.http.get<ClubMember>('/rest/club-member-form/' + id);
   }
 
 
