@@ -6,6 +6,8 @@ import org.hibernate.exception.ConstraintViolationException;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -22,11 +24,17 @@ public class ClubMemberDAO {
         entityManager.persist(clubMember);
     }
 
-    public List<ClubMember> listClubMembers() { return entityManager.createQuery( "select clubMember from ClubMember clubMember").getResultList();}
+    public List<ClubMember> listClubMembers() {
+        return entityManager.createQuery("select clubMember from ClubMember clubMember").getResultList();
+    }
 
-    public ClubMember loadClubMember(Long id) { return entityManager.find(ClubMember.class, id);}
+    public ClubMember loadClubMember(Long id) {
+        return entityManager.find(ClubMember.class , id);
+    }
 
     @PersistenceContext
-    public void setEntityManager(EntityManager entityManager) { this.entityManager = entityManager;}
+    public void setEntityManager(EntityManager entityManager) {
+        this.entityManager = entityManager;
+    }
 
 }

@@ -16,6 +16,6 @@ testform
       Aktueller Jahresbeitrag:
       <input name="annualFee" type="number" [(ngModel)]="clubMember.annualFee"><br>
       <button type="submit">Speichern</button>
-      <button type="button" (click)="onCancel()">Abbrechen</button>
+      <button routerLink="/club-members" type="button" (click)="onCancel()">Abbrechen</button>
     </form>
 </div>
