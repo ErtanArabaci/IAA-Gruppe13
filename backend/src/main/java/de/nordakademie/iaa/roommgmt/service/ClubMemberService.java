@@ -20,6 +20,20 @@ public class ClubMemberService {
         }
     }
 
+    public void createClubMember(ClubMember clubMember){
+        clubMemberDAO.createClubMember(clubMember);
+    }
+
+    public void updateClubMember(ClubMember clubMember){
+        clubMemberDAO.updateClubMember(clubMember);
+    }
+
+    public void deleteClubMember(Long id){
+        clubMemberDAO.deleteClubMember(id);
+    }
+
+
+
     @SuppressWarnings("unchecked")
     public List<ClubMember> listClubMembers() {
         return clubMemberDAO.listClubMembers();

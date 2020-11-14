@@ -32,6 +32,38 @@ public class ClubMemberDAO {
         return entityManager.find(ClubMember.class , id);
     }
 
+    public void createClubMember(ClubMember clubMember){
+        entityManager.getTransaction().begin();
+        entityManager.persist(clubMember);
+        entityManager.getTransaction().commit();
+    }
+
+    public void updateClubMember(ClubMember clubMember){
+        entityManager.getTransaction().begin();
+
+        ClubMember existingClubMember = entityManager.find(ClubMember.class , clubMember.getClubMemberId());
+
+        System.out.println("Ursprungsname (altes Objekt) " + existingClubMember.getClubMemberName());
+        System.out.println("Neuer Name: " + clubMember.getClubMemberName());
+
+        existingClubMember.setClubMemberName(clubMember.getClubMemberName());
+        existingClubMember.setClubMemberAdress(clubMember.getClubMemberAdress());
+        existingClubMember.setClubMemberBirthday(clubMember.getClubMemberBirthday());
+        existingClubMember.setEntranceDate(clubMember.getEntranceDate());
+        existingClubMember.setExitDate(clubMember.getExitDate());
+        existingClubMember.setTerminationDate(clubMember.getTerminationDate());
+        existingClubMember.setMembership_type(clubMember.getMembership_type());
+
+        System.out.println("Aktualisierter Name: " + existingClubMember.getClubMemberName());
+
+        entityManager.getTransaction().commit();
+
+    }
+
+    public void deleteClubMember(Long id){
+        entityManager.remove(entityManager.find(ClubMember.class, id));
+    }
+
     @PersistenceContext
     public void setEntityManager(EntityManager entityManager) {
         this.entityManager = entityManager;
