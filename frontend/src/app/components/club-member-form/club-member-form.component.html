@@ -1,21 +1,36 @@
-testform
 <div class="container" *ngIf="clubMember">
-  <form (ngSubmit)="onSave()">
-      Mitgliedsnummer: {{ clubMember.clubMemberId}}<br>
-      Name: {{ clubMember.clubMemberName}}<br>
-      Adresse:
-      <input name="clubMemberAdress" type="string" [(ngModel)]="clubMember.clubMemberAdress"><br>
-      Geburtstag: {{ clubMember.clubMemberBirthday}}<br>
-      Datum Eintritt: {{clubMember.entranceDate}}<br>
-      Datum Kündigung:
-      <input name="terminationDate" type="date" [(ngModel)]="clubMember.terminationDate"><br>
-      Datum Austritt:
-      <input name="exitDate" type="date" [(ngModel)]="clubMember.exitDate"><br>
-      Mitgliedsart:
-      <input name="membership_Type" type="string" [(ngModel)]="clubMember.membership_type"><br>
-      Aktueller Jahresbeitrag:
-      <input name="annualFee" type="number" [(ngModel)]="clubMember.annualFee"><br>
-      <button type="submit">Speichern</button>
-      <button routerLink="/club-members" type="button" (click)="onCancel()">Abbrechen</button>
-    </form>
+  <form>
+    Mitgliedsnummer: {{ clubMember.clubMemberId}}<br>
+    Name:
+    <input name="clubMemberName" type="string" [(ngModel)]="clubMember.clubMemberName"><br>
+    Adresse:
+    <input name="clubMemberAdress" type="string" [(ngModel)]="clubMember.clubMemberAdress"><br>
+    Geburtstag: <input id="birthDayDate" name="clubMemberBirthday" type="date"
+                       [(ngModel)]="clubMember.clubMemberBirthday"><br>
+    Datum Eintritt: <input name="entranceDate" type="date" [(ngModel)]="clubMember.entranceDate"><br>
+    Datum Kündigung:
+    <input name="terminationDate" type="date" [(ngModel)]="clubMember.terminationDate"><br>
+    Datum Austritt:
+    <input name="exitDate" type="date" [(ngModel)]="clubMember.exitDate"><br>
+    Mitgliedsart:
+    <input name="membership_Type" type="string" [(ngModel)]="clubMember.membership_type"><br>
+    Aktueller Jahresbeitrag:
+    {{clubMember.annualFee}} €<br>
+    <button (click)="updateClubMember(clubMember)">Speichern</button>
+    <button (click)="deleteClubMember()">Löschen</button>
+    <button routerLink="/club-members" type="button" (click)="onCancel()">Abbrechen</button>
+  </form>
 </div>
+
+<script>
+  console.log("Hallo");
+  document.getElementById("birthDayDate").innerHTML = intToDate(document.getElementById("birthDayDate"));
+
+
+  function intToDate(intValue) {
+    console.log("Integer Value: " + intValue);
+    console.log(Date(parseInt(intValue, 10) * 1000));
+    return Date(parseInt(intValue, 10) * 1000);
+  }
+
+</script>
