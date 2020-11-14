@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders, HttpResponse} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {ClubMember} from "../model/clubMember";
 
@@ -10,6 +10,10 @@ import {ClubMember} from "../model/clubMember";
 export class ClubMemberService {
 
   constructor(private http: HttpClient) {
+  }
+
+  createClubMember(clubMember: ClubMember) {
+    return this.http.post<ClubMember>('/rest/club-member-form/' + clubMember.clubMemberId, clubMember)
   }
 
   loadClubMembers(): Observable<ClubMember[]> {
@@ -24,15 +28,16 @@ export class ClubMemberService {
     return this.http.get<ClubMember>('/rest/club-member-accounting/' + id);
   }
 
-  updateClubMember(clubMember: ClubMember){
-    console.log("Update Member " + clubMember.clubMemberId + "with name " + clubMember.clubMemberName +  "pls")
-    return this.http.put<ClubMember>('/rest/club-member-form/' + clubMember.clubMemberId, clubMember)
+
+  updateClubMember(clubMember: ClubMember) {
+    console.log("Update Member " + clubMember.clubMemberId + " with name " + clubMember.clubMemberName + "pls")
+    return this.http.put<ClubMember>('/rest/club-members/' + clubMember.clubMemberId, clubMember)
   }
 
-  deleteClubMember(id: number) {
-
+  deleteClubMember(id: number): Observable<HttpResponse<void>> {
     console.log("delete member " + id + " pls");
-    return this.http.delete<ClubMember>('rest/club-member-form/' + id)
+    console.log(`/rest/club-members/${id}`);
+    return this.http.delete<void>(`/rest/club-members/${id}`, {observe: 'response'});
   }
 
 

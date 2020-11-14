@@ -57,7 +57,6 @@ public class ClubMember implements Serializable {
     }
 
     @Column(name = "CLUBMEMBER_BIRTHDAY", nullable = false)
-    @Temporal(TemporalType.DATE)
     public Date getClubMemberBirthday() {
         return clubMemberBirthday;
     }
@@ -67,7 +66,6 @@ public class ClubMember implements Serializable {
     }
 
     @Column(name = "ENTRANCE_DATE", nullable = false)
-    @Temporal(TemporalType.DATE)
     public Date getEntranceDate() {
         return entranceDate;
     }
@@ -77,7 +75,6 @@ public class ClubMember implements Serializable {
     }
 
     @Column(name = "TERMINATION_DATE")
-    @Temporal(TemporalType.DATE)
     public Date getTerminationDate() {
         return terminationDate;
     }
@@ -87,7 +84,6 @@ public class ClubMember implements Serializable {
     }
 
     @Column(name = "EXIT_DATE")
-    @Temporal(TemporalType.DATE)
     public Date getExitDate() {
         return exitDate;
     }

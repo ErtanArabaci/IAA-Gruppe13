@@ -3,8 +3,7 @@ import {ClubMember} from "../../model/clubMember";
 import {ActivatedRoute} from '@angular/router';
 import {Location} from '@angular/common';
 import {ClubMemberService} from "../../services/club-member.service";
-import { CommonModule } from '@angular/common';
-import { BrowserModule } from '@angular/platform-browser';
+
 
 @Component({
   selector: 'app-club-member-form',
@@ -34,13 +33,23 @@ export class ClubMemberFormComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('id');
     this.clubMemberService.getClubMember(id as unknown as number)
       .subscribe(clubMember => {
-        this.clubMember = clubMember;
+        console.log(clubMember)
+        console.log(typeof clubMember.clubMemberBirthday)
+        this.clubMember = {
+          ...clubMember,
+          clubMemberBirthday: new Date(clubMember.clubMemberBirthday).toLocaleDateString('de-DE'),
+          entranceDate: new Date(clubMember.entranceDate).toLocaleDateString('de-DE'),
+          exitDate: new Date(clubMember.exitDate).toLocaleDateString('de-DE'),
+          terminationDate: new Date(clubMember.terminationDate).toLocaleDateString('de-DE')
+        };
+
+        console.log(this.clubMember.clubMemberBirthday)
       });
   }
 
   deleteClubMember(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    this.clubMemberService.deleteClubMember(id as unknown as number);
+    this.clubMemberService.deleteClubMember(id as unknown as number).subscribe();
   }
 
   onCancel(): void {
@@ -48,7 +57,7 @@ export class ClubMemberFormComponent implements OnInit {
   }
 
   updateClubMember(clubMember: ClubMember): void{
-    this.clubMemberService.updateClubMember(clubMember);
+    this.clubMemberService.updateClubMember(clubMember).subscribe();
   }
 
 }
