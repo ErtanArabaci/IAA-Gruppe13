@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="clubMember">
 
   <h3>Buchhaltung</h3>
 
@@ -10,16 +10,16 @@
       <th>Name</th>
       <th>Datum Eintritt</th>
       <th>Kontoverbindung</th>
+      <th>Mitgliedsart</th>
       <th>Aktueller Jahresbeitrag</th>
     </tr>
     </thead>
-    <tr *ngFor="let clubMember of clubMembers | filter:term">
       <td>{{ clubMember.clubMemberId}}</td>
       <td>{{ clubMember.clubMemberName}}</td>
       <td>{{ clubMember.entranceDate | date: 'dd.MM.yyyy'}}</td>
       <td>{{ clubMember.iban}}</td>
+      <td>{{ clubMember.membership_type}}</td>
       <td>{{ clubMember.annualFee}}</td>
-    </tr>
   </table>
 
 
@@ -29,15 +29,16 @@
     <thead class="thead-light">
     <tr>
       <th>Jahr</th> <!-- Muss noch ein Jahr rein-->
+      <th>Mitgliedsart</th>
+      <th>Beitrag</th>
       <th>Bezahlt</th>
-      <th>Betrag</th>
     </tr>
     </thead>
-    <tr *ngFor="let clubMember of clubMembers | filter:term">
+    <!--<tr *ngFor="let clubMember of clubMembers | filter:term">
       <td>Jahr-Fortlaufend</td>
       <td>Bezahlt-Beitrag</td>
       <td>Betrag-Beitrag</td>
-    </tr>
+    </tr>-->
   </table>
 </div>
 

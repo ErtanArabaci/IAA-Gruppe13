@@ -23,14 +23,14 @@
 </div>
 
 <script>
-  console.log("Hallo");
-  document.getElementById("birthDayDate").innerHTML = intToDate(document.getElementById("birthDayDate"));
+    console.log("Hallo");
+    document.getElementById("birthDayDate").innerHTML = intToDate(document.getElementById("birthDayDate"));
 
 
-  function intToDate(intValue) {
-    console.log("Integer Value: " + intValue);
-    console.log(Date(parseInt(intValue, 10) * 1000));
-    return Date(parseInt(intValue, 10) * 1000);
-  }
+    function intToDate(intValue) {
+        console.log("Integer Value: " + intValue);
+        console.log(Date(parseInt(intValue, 10) * 1000));
+        return Date(parseInt(intValue, 10) * 1000);
+    }
 
 </script>
