@@ -18,7 +18,7 @@ public class ClubMemberDetailController {
     private ClubMemberService clubMemberService;
 
     @GetMapping("/club-member-form/{id}")
-    ClubMember one(@PathVariable Long id) {
+    public ClubMember loadClubMemberById(@PathVariable Long id) {
         System.out.println(id);
         return clubMemberService.loadClubMember(id);
 

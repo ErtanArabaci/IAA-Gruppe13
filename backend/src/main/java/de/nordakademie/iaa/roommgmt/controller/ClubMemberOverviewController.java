@@ -2,6 +2,8 @@ package de.nordakademie.iaa.roommgmt.controller;
 
 import de.nordakademie.iaa.roommgmt.model.ClubMember;
 import de.nordakademie.iaa.roommgmt.service.ClubMemberService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.inject.Inject;
@@ -28,9 +30,10 @@ public class ClubMemberOverviewController {
     }
 
     @DeleteMapping(path = "/club-members/{id}")
-    public void deleteClubMember(@PathVariable Long id) {
-        this.clubMemberService.deleteClubMember(id);
+    public ResponseEntity<?> deleteClubMember(@PathVariable Long id) {
         System.out.println("Delete clubMember " + id);
+        this.clubMemberService.deleteClubMember(id);
+        return ResponseEntity.status(HttpStatus.OK).build();
     }
 
     @PutMapping(path = "/club-members/{id}")
