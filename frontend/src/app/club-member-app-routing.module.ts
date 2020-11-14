@@ -9,6 +9,7 @@ const routes: Routes = [
   {path: 'club-member-form', component: ClubMemberFormComponent},
   {path: 'club-members', component: ClubMembersComponent},
   {path: 'club-member-list', component: ClubMemberListComponent},
+  {path: 'club-member-accounting', component: ClubMemberListComponent},
 
 ];
 

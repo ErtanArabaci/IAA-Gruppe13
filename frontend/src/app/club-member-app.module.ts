@@ -10,6 +10,7 @@ import {ClubMembersComponent} from './components/club-members/club-members.compo
 import {ClubMemberFormComponent} from './components/club-member-form/club-member-form.component';
 import {ClubMemberAppRoutingModule} from './club-member-app-routing.module';
 import {Ng2SearchPipeModule} from "ng2-search-filter";
+import { ClubMemberAccountingComponent } from './components/club-member-accounting/club-member-accounting.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import {Ng2SearchPipeModule} from "ng2-search-filter";
     ClubMemberListComponent,
     ClubMembersComponent,
     ClubMemberFormComponent,
+    ClubMemberAccountingComponent,
   ],
   imports: [
     CommonModule,

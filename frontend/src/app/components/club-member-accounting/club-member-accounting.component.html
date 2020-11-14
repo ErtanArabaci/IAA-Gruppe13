@@ -1,0 +1,44 @@
+<div class="container">
+
+  <h3>Buchhaltung</h3>
+
+
+  <table class="table">
+    <thead class="thead-dark">
+    <tr>
+      <th>Mitgliedsnummer</th>
+      <th>Name</th>
+      <th>Datum Eintritt</th>
+      <th>Kontoverbindung</th>
+      <th>Aktueller Jahresbeitrag</th>
+    </tr>
+    </thead>
+    <tr *ngFor="let clubMember of clubMembers | filter:term">
+      <td>{{ clubMember.clubMemberId}}</td>
+      <td>{{ clubMember.clubMemberName}}</td>
+      <td>{{ clubMember.entranceDate | date: 'dd.MM.yyyy'}}</td>
+      <td>{{ clubMember.iban}}</td>
+      <td>{{ clubMember.annualFee}}</td>
+    </tr>
+  </table>
+
+
+  <input type="text" class="form-control" placeholder="Suche hier" [(ngModel)]="term">
+
+  <table class="table">
+    <thead class="thead-light">
+    <tr>
+      <th>Jahr</th> <!-- Muss noch ein Jahr rein-->
+      <th>Bezahlt</th>
+      <th>Betrag</th>
+    </tr>
+    </thead>
+    <tr *ngFor="let clubMember of clubMembers | filter:term">
+      <td>Jahr-Fortlaufend</td>
+      <td>Bezahlt-Beitrag</td>
+      <td>Betrag-Beitrag</td>
+    </tr>
+  </table>
+</div>
+
+<!-- <td> <a routerLink="/club-member-form/{{clubMember.clubMemberId}}"  class="btn btn-primary" ></a> </td> -->
