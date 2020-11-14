@@ -16,8 +16,8 @@
     <input name="membership_Type" type="string" [(ngModel)]="clubMember.membership_type"><br>
     Aktueller Jahresbeitrag:
     {{clubMember.annualFee}} €<br>
-    <button (click)="updateClubMember(clubMember)">Speichern</button>
-    <button (click)="deleteClubMember()">Löschen</button>
+    <button routerLink="/club-members"(click)="updateClubMember(clubMember)">Speichern</button>
+    <button routerLink="/club-members"(click)="deleteClubMember()">Löschen</button>
     <button routerLink="/club-members" type="button" (click)="onCancel()">Abbrechen</button>
   </form>
 </div>
