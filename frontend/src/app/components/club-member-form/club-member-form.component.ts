@@ -37,7 +37,10 @@ export class ClubMemberFormComponent implements OnInit {
         console.log(typeof clubMember.clubMemberBirthday)
         this.clubMember = {
           ...clubMember,
-          clubMemberBirthday: new Date(clubMember.clubMemberBirthday).toLocaleDateString('en-EN')
+          clubMemberBirthday: new Date(clubMember.clubMemberBirthday).toLocaleDateString('de-DE'),
+          entranceDate: new Date(clubMember.entranceDate).toLocaleDateString('de-DE'),
+          exitDate: new Date(clubMember.exitDate).toLocaleDateString('de-DE'),
+          terminationDate: new Date(clubMember.terminationDate).toLocaleDateString('de-DE')
         };
 
         console.log(this.clubMember.clubMemberBirthday)
@@ -54,7 +57,7 @@ export class ClubMemberFormComponent implements OnInit {
   }
 
   updateClubMember(clubMember: ClubMember): void{
-    this.clubMemberService.updateClubMember(clubMember);
+    this.clubMemberService.updateClubMember(clubMember).subscribe();
   }
 
 }

@@ -37,7 +37,8 @@ public class ClubMemberOverviewController {
     }
 
     @PutMapping(path = "/club-members/{id}")
-    public void updateClubMember(@PathVariable ClubMember clubMember){
+    public void updateClubMember(@RequestParam ClubMember clubMember){
+        System.out.println("Update clubMember " + clubMember.getClubMemberId());
         this.clubMemberService.updateClubMember(clubMember);
     }
 
