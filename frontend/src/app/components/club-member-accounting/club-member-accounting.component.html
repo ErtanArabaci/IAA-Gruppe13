@@ -1,10 +1,12 @@
 <div class="container" *ngIf="clubMember">
 
-  <h3>Buchhaltung</h3>
+  <h1>Buchhaltung</h1>
+
+  <button onclick="window.print()" id="printButton" class="btn btn-primary">Drucken</button>
 
 
   <table class="table">
-    <thead class="thead-dark">
+    <thead class="thead-light">
     <tr>
       <th>Mitgliedsnummer</th>
       <th>Name</th>
@@ -23,7 +25,7 @@
   </table>
 
 
-  <input type="text" class="form-control" placeholder="Suche hier" [(ngModel)]="term">
+  <input type="text" id="searchOperation" class="form-control" placeholder="Suche hier" [(ngModel)]="term">
 
   <table class="table">
     <thead class="thead-light">

@@ -2,9 +2,12 @@
 
   <h2>Mitgliederübersicht</h2>
   <input id="searchOperation" type="text" class="form-control" placeholder="Suche hier" [(ngModel)]="term">
-  <button id="createOperation" routerLink="/club-member-create-form" class="btn btn-primary">Neues Mitglied</button>
+  <button id="createOperation" routerLink="/club-member-form/new" class="btn btn-primary">Neues Mitglied</button>
+  <button onclick="window.print()" id="printButton" class="btn btn-primary">Drucken</button>
 
-  <table class="table">
+<div id="clubMemberOverview">
+  <h2 id="memberListText">Mitgliederliste</h2>
+  <table class="table" >
     <thead class="thead-light">
     <tr>
       <th>Mitgliedsnummer</th>
@@ -37,4 +40,5 @@
 
     </tr>
   </table>
+</div>
 </div>
