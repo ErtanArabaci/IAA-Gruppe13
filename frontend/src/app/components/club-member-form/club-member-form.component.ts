@@ -18,6 +18,8 @@ import {isNumeric} from "rxjs/internal-compatibility";
 
 export class ClubMemberFormComponent implements OnInit {
   keys = Object.keys;
+  clubMembers: ClubMember[] = [];
+
   clubMember: ClubMember = {
     clubMemberId: 0,
     clubMemberName: "",
@@ -47,6 +49,13 @@ export class ClubMemberFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.getClubMember();
+    this.getClubMembers();
+  }
+
+  getClubMembers(){
+    this.clubMemberService.loadClubMembers().subscribe((clubMembers: ClubMember[]) => {
+      this.clubMembers = clubMembers;
+    });
   }
 
   getClubMember(): void {
@@ -83,6 +92,12 @@ export class ClubMemberFormComponent implements OnInit {
     if(clubMember.clubMemberName && clubMember.clubMemberAdress && clubMember.clubMemberBirthday && clubMember.entranceDate && clubMember.membership_type ){
       if(this.isNew){
         console.log("Mitgliedsname: " + clubMember.clubMemberName)
+        console.log("club Member ID alt: " + clubMember.clubMemberId)
+
+        while (clubMember.clubMemberId)
+
+        clubMember.clubMemberId = this.clubMembers.length + 1
+        console.log("club Member ID generiert: " + clubMember.clubMemberId)
         this.clubMemberService.createClubMember(clubMember).subscribe();
       }
       else{

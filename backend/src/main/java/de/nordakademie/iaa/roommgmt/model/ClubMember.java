@@ -16,7 +16,6 @@ public class ClubMember implements Serializable {
     private static final long serialVersionUID = 6925248180274039273L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long clubMemberId;
 
     @Column(name = "CLUBMEMBER_NAME", nullable = false)
@@ -42,7 +41,7 @@ public class ClubMember implements Serializable {
     private MEMBERSHIP_TYPE membership_type;
 
     @Column(name = "ANNUAL_FEE", nullable = false)
-    private Float annualFee;
+    private Long annualFee;
     //private List<AnnualPayment> annualPaymentList;
 
     @Column(name = "IBAN", nullable = false)
@@ -117,11 +116,11 @@ public class ClubMember implements Serializable {
         this.membership_type = membership_type;
     }
 
-    public Float getAnnualFee() {
+    public Long getAnnualFee() {
         return annualFee;
     }
 
-    public void setAnnualFee(Float annualFee) {
+    public void setAnnualFee(Long annualFee) {
         this.annualFee = annualFee;
     }
 
