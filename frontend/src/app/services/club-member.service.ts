@@ -20,6 +20,10 @@ export class ClubMemberService {
     return this.http.get<ClubMember[]>('/rest/club-members');
   }
 
+  getEmptyClubMember(): Observable<ClubMember>{
+    return this.http.get<ClubMember>('/rest/empty-club-member')
+  }
+
   getClubMember(id: number): Observable<ClubMember> {
     return this.http.get<ClubMember>('/rest/club-member-form/' + id);
   }

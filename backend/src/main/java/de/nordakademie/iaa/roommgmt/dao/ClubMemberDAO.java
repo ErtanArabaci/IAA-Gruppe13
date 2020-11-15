@@ -56,4 +56,10 @@ public class ClubMemberDAO {
         this.entityManager = entityManager;
     }
 
+    public ClubMember loadEmptyClubMember(){
+        ClubMember clubMember = new ClubMember();
+
+        return clubMember;
+    }
+
 }

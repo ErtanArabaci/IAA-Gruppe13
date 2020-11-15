@@ -4,6 +4,7 @@ import {ClubMemberFormComponent} from "./components/club-member-form/club-member
 import {ClubMemberListComponent} from "./components/club-member-list/club-member-list.component";
 import {ClubMembersComponent} from "./components/club-members/club-members.component";
 import {ClubMemberAccountingComponent} from "./components/club-member-accounting/club-member-accounting.component";
+import {ClubMemberCreateFormComponent} from "./components/club-member-create-form/club-member-create-form.component";
 
 const routes: Routes = [
   {path: 'club-member-form/:id', component: ClubMemberFormComponent},
@@ -12,6 +13,7 @@ const routes: Routes = [
   {path: 'club-member-list', component: ClubMemberListComponent},
   {path: 'club-member-accounting', component: ClubMemberAccountingComponent},
   {path: 'club-member-accounting/:id', component: ClubMemberAccountingComponent},
+  {path: 'club-member-create-form', component: ClubMemberCreateFormComponent},
 
 ];
 

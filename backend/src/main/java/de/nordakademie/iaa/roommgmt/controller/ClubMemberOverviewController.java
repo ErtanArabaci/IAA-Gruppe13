@@ -47,6 +47,11 @@ public class ClubMemberOverviewController {
         this.clubMemberService.createClubMember(clubMember);
     }
 
+    @GetMapping(path = "/empty-club-member")
+    public ClubMember loadEmptyClubMember(){
+        return clubMemberService.loadEmptyClubMember();
+    }
+
     @Inject
     public void setClubMemberService(ClubMemberService clubMemberService) {
         this.clubMemberService = clubMemberService;

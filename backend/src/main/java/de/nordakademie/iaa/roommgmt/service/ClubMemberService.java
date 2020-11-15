@@ -32,6 +32,7 @@ public class ClubMemberService {
         clubMemberDAO.deleteClubMember(id);
     }
 
+    public ClubMember loadEmptyClubMember(){return clubMemberDAO.loadEmptyClubMember();}
 
 
     @SuppressWarnings("unchecked")

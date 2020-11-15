@@ -17,21 +17,43 @@ public class ClubMember implements Serializable {
 
     private static final long serialVersionUID = 6925248180274039273L;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long clubMemberId;
+
+    @Column(name = "CLUBMEMBER_NAME", nullable = false)
     private String clubMemberName;
+
+    @Column(name = "CLUBMEMBER_ADRESS", nullable = false)
     private String clubMemberAdress;
+
+    @Column(name = "CLUBMEMBER_BIRTHDAY", nullable = false)
     private Date clubMemberBirthday;
+
+    @Column(name = "ENTRANCE_DATE", nullable = false)
     private Date entranceDate;
+
+    @Column(name = "TERMINATION_DATE")
     private Date terminationDate;
+
+    @Column(name = "EXIT_DATE")
     private Date exitDate;
+
+    @Column(name = "MEMBERSHIP_TYPE", nullable = false)
+    @Enumerated(EnumType.STRING)
     private MEMBERSHIP_TYPE membership_type;
+
+    @Column(name = "ANNUAL_FEE", nullable = false)
     private Float annualFee;
     //private List<AnnualPayment> annualPaymentList;
+
+    @Column(name = "IBAN", nullable = false)
     private String iban;
+
+    @Column(name = "FIRST_ENTERED_FAMILYCLUBMEMBER")
     private ClubMember firstEnteredFamilyClubMember;
 
-    @Id
-    @GeneratedValue
+
     public Long getClubMemberId() {
         return clubMemberId;
     }
@@ -40,7 +62,6 @@ public class ClubMember implements Serializable {
         this.clubMemberId = clubMemberId;
     }
 
-    @Column(name = "CLUBMEMBER_NAME", nullable = false)
     public String getClubMemberName() {
         return clubMemberName;
     }
@@ -49,7 +70,6 @@ public class ClubMember implements Serializable {
         this.clubMemberName = clubMemberName;
     }
 
-    @Column(name = "CLUBMEMBER_ADRESS", nullable = false)
     public String getClubMemberAdress() {
         return clubMemberAdress;
     }
@@ -58,7 +78,6 @@ public class ClubMember implements Serializable {
         this.clubMemberAdress = clubMemberAdress;
     }
 
-    @Column(name = "CLUBMEMBER_BIRTHDAY", nullable = false)
     public Date getClubMemberBirthday() {
         return clubMemberBirthday;
     }
@@ -67,7 +86,6 @@ public class ClubMember implements Serializable {
         this.clubMemberBirthday = clubMemberBirthday;
     }
 
-    @Column(name = "ENTRANCE_DATE", nullable = false)
     public Date getEntranceDate() {
         return entranceDate;
     }
@@ -76,7 +94,6 @@ public class ClubMember implements Serializable {
         this.entranceDate = entranceDate;
     }
 
-    @Column(name = "TERMINATION_DATE")
     public Date getTerminationDate() {
         return terminationDate;
     }
@@ -85,7 +102,6 @@ public class ClubMember implements Serializable {
         this.terminationDate = terminationDate;
     }
 
-    @Column(name = "EXIT_DATE")
     public Date getExitDate() {
         return exitDate;
     }
@@ -94,8 +110,7 @@ public class ClubMember implements Serializable {
         this.exitDate = exitDate;
     }
 
-    @Column(name = "MEMBERSHIP_TYPE", nullable = false)
-    @Enumerated(EnumType.STRING)
+
     public MEMBERSHIP_TYPE getMembership_type() {
         return membership_type;
     }
@@ -104,7 +119,6 @@ public class ClubMember implements Serializable {
         this.membership_type = membership_type;
     }
 
-    @Column(name = "ANNUAL_FEE", nullable = false)
     public Float getAnnualFee() {
         return annualFee;
     }
@@ -122,7 +136,6 @@ public class ClubMember implements Serializable {
         this.annualPaymentList = annualPaymentList;
     }*/
 
-    @Column(name = "IBAN", nullable = false)
     public String getIban() {
         return iban;
     }
@@ -131,7 +144,6 @@ public class ClubMember implements Serializable {
         this.iban = iban;
     }
 
-    @Column(name = "FIRST_ENTERED_FAMILYCLUBMEMBER")
     public ClubMember getFirstEnteredFamilyClubMember() {
         return firstEnteredFamilyClubMember;
     }
