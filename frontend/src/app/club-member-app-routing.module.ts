@@ -12,7 +12,8 @@ const routes: Routes = [
   {path: 'club-member-accounting', component: ClubMemberAccountingComponent},
   {path: 'club-member-accounting/:id', component: ClubMemberAccountingComponent},
   {path: 'club-member-create-form', component: ClubMemberCreateFormComponent},
-  {path:'', redirectTo:'club-member-list', pathMatch:'full'}
+  {path:'', redirectTo:'club-member-list', pathMatch:'full'},
+  {path:'**', redirectTo:'club-member-list'}
 ];
 
 @NgModule({
