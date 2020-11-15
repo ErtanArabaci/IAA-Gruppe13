@@ -93,24 +93,7 @@ export class ClubMemberFormComponent implements OnInit {
         console.log("Mitgliedsname: " + clubMember.clubMemberName)
         console.log("club Member ID alt: " + clubMember.clubMemberId)
 
-        let index = 1;
-        let list: number[] = []
-
-        for (let existingClubMember of this.clubMembers) {
-          list.push(existingClubMember.clubMemberId)
-        }
-
-        for(let investigatedId in this.clubMembers) {
-          index++;
-          if(list.includes(index)){
-            console.log("Den index " + index + "gibt es schon")
-          }
-          else{
-            this.clubMember.clubMemberId = index
-            break
-          }
-        }
-
+        clubMember.clubMemberId = this.generateClubMemberId()
 
         console.log("club Member ID generiert: " + clubMember.clubMemberId)
         this.clubMemberService.createClubMember(clubMember).subscribe();
@@ -129,6 +112,24 @@ export class ClubMemberFormComponent implements OnInit {
       alert("Keine Mitgliedsart angegeben! Änderungen wurden nicht gespeichert.");
     }
 
+  }
+
+  generateClubMemberId(): number{
+    let defaultValue = 9999;
+    let index = 1;
+    let list: number[] = []
+
+    for (let existingClubMember of this.clubMembers) {
+      list.push(existingClubMember.clubMemberId)
+    }
+
+    for(let investigatedId in this.clubMembers) {
+      index++;
+      if(!list.includes(index)){
+        return this.clubMember.clubMemberId = index
+      }
+    }
+    return defaultValue
   }
 
 }
