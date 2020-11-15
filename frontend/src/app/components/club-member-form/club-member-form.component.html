@@ -1,44 +1,55 @@
 <div class="container" *ngIf="clubMember">
   <form>
     <label>
-    Mitgliedsnummer: {{ clubMember.clubMemberId}}<br>
+      Mitgliedsnummer: {{ clubMember.clubMemberId}}<br>
     </label>
     <label>
-    Name:
-    <input name="clubMemberName" type="string" [(ngModel)]="clubMember.clubMemberName"><br>
+      Name:
+      <input name="clubMemberName" type="string" [(ngModel)]="clubMember.clubMemberName"><br>
     </label>
     <label>
-    Adresse:
-    <input name="clubMemberAdress" type="string" [(ngModel)]="clubMember.clubMemberAdress"><br>
+      Adresse:
+      <input name="clubMemberAdress" type="string" [(ngModel)]="clubMember.clubMemberAdress"><br>
     </label>
     <label>
-    Geburtstag: {{clubMember.clubMemberBirthday | date: 'dd.MM.yyyy'}}<br>
+      Geburtstag: {{clubMember.clubMemberBirthday | date: 'dd.MM.yyyy'}}<br>
     </label>
     <label>
-    Datum Eintritt: {{clubMember.entranceDate | date: 'dd.MM.yyyy'}}<br>
+      Datum Eintritt: {{clubMember.entranceDate | date: 'dd.MM.yyyy'}}<br>
     </label>
     <label>
-    Datum Kündigung:
-    {{clubMember.exitDate | date: 'dd.MM.yyyy'}}<br>
+      Datum Kündigung:
+      {{clubMember.exitDate | date: 'dd.MM.yyyy'}}<br>
     </label>
     <label>
-    Datum Austritt:
-    {{clubMember.terminationDate | date: 'dd.MM.yyyy'}}<br>
+      Datum Austritt:
+      {{clubMember.terminationDate | date: 'dd.MM.yyyy'}}<br>
     </label>
     <label>
-    Mitgliedsart:
+      Mitgliedsart:
 
-    <select [(ngModel)]="clubMember.membership_type" name="membership_Type" id="dropDownMenuMemberType" class="form-control">
-      <option *ngFor="let type of keys(membershipTypeEnum)" [(ngValue)]="membershipTypeEnum[type]">{{type}}</option>
-    </select>
-    <br>
+      <select [(ngModel)]="clubMember.membership_type" name="membership_Type" id="dropDownMenuMemberType"
+              class="form-control">
+        <option *ngFor="let type of keys(membershipTypeEnum)" [(ngValue)]="membershipTypeEnum[type]">{{type}}</option>
+      </select>
+      <br>
     </label>
+    <div *ngIf="clubMember.membership_type=='Ermaessigt'">11
+    </div>
+    <div *ngIf="clubMember.membership_type=='Vollmitglied'">22 <!--[(ngModel)]="clubMember.annualFee===44"-->
+    </div>
+    <div *ngIf="clubMember.membership_type=='Foerdermitglied'">33
+    </div>
+    <div *ngIf="clubMember.membership_type=='Jugendlich'">44
+    </div>
+    <div *ngIf="clubMember.membership_type=='Familienmitglied'">55
+    </div>
     <label>
-    Aktueller Jahresbeitrag:
-    {{clubMember.annualFee}} €<br>
+      Aktueller Jahresbeitrag:
+      {{clubMember.annualFee}} €<br>
     </label>
-    <button routerLink="/club-member-list"(click)="updateClubMember(clubMember)">Speichern</button>
-    <button routerLink="/club-member-list"(click)="deleteClubMember()">Löschen</button>
+    <button routerLink="/club-member-list" (click)="updateClubMember(clubMember)">Speichern</button>
+    <button routerLink="/club-member-list" (click)="deleteClubMember()">Löschen</button>
     <button routerLink="/club-member-list" type="button" (click)="onCancel()">Abbrechen</button>
   </form>
 </div>
