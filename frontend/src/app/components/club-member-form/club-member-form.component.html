@@ -1,23 +1,42 @@
 <div class="container" *ngIf="clubMember">
   <form>
+    <label>
     Mitgliedsnummer: {{ clubMember.clubMemberId}}<br>
+    </label>
+    <label>
     Name:
     <input name="clubMemberName" type="string" [(ngModel)]="clubMember.clubMemberName"><br>
+    </label>
+    <label>
     Adresse:
     <input name="clubMemberAdress" type="string" [(ngModel)]="clubMember.clubMemberAdress"><br>
+    </label>
+    <label>
     Geburtstag: {{clubMember.clubMemberBirthday | date: 'dd.MM.yyyy'}}<br>
+    </label>
+    <label>
     Datum Eintritt: {{clubMember.entranceDate | date: 'dd.MM.yyyy'}}<br>
+    </label>
+    <label>
     Datum Kündigung:
     {{clubMember.exitDate | date: 'dd.MM.yyyy'}}<br>
+    </label>
+    <label>
     Datum Austritt:
     {{clubMember.terminationDate | date: 'dd.MM.yyyy'}}<br>
+    </label>
+    <label>
     Mitgliedsart:
-    <select class="form-control">
+    <select id="dropDownMenuMeberType" class="form-control">
       <option *ngFor="let type of keys(membershipTypeEnum)" [ngValue]="membershipTypeEnum[type]">{{type}}</option>
     </select>
-    <input name="membership_Type" type="string" [(ngModel)]="clubMember.membership_type"><br>
+    <!-- <input name="membership_Type" type="string" [(ngModel)]="clubMember.membership_type"><br>-->
+    <br>
+    </label>
+    <label>
     Aktueller Jahresbeitrag:
     {{clubMember.annualFee}} €<br>
+    </label>
     <button routerLink="/club-members"(click)="updateClubMember(clubMember)">Speichern</button>
     <button routerLink="/club-members"(click)="deleteClubMember()">Löschen</button>
     <button routerLink="/club-members" type="button" (click)="onCancel()">Abbrechen</button>

@@ -1,0 +1,15 @@
+#dropDownMenuMeberType{
+  font-size: 0.85rem;
+  width: 15%;
+  display: inline-block;
+  height: 30px;
+}
+
+label{
+  display: block;
+  margin-bottom: 12px;
+}
+
+button{
+  margin-right: 6px;
+}
