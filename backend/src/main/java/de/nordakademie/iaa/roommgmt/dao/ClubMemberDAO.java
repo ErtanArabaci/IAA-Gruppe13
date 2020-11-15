@@ -2,11 +2,13 @@ package de.nordakademie.iaa.roommgmt.dao;
 
 
 import de.nordakademie.iaa.roommgmt.model.ClubMember;
+import org.hibernate.HibernateException;
 import org.hibernate.exception.ConstraintViolationException;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+import javax.transaction.Transactional;
 import java.util.Iterator;
 import java.util.List;
 
@@ -15,7 +17,7 @@ import java.util.List;
  *
  * @author Kim Bartikowski, Ertan Arabaci
  */
-
+@Transactional
 public class ClubMemberDAO {
 
     private EntityManager entityManager;
@@ -33,9 +35,7 @@ public class ClubMemberDAO {
     }
 
     public void createClubMember(ClubMember clubMember){
-        entityManager.getTransaction().begin();
-        entityManager.persist(clubMember);
-        entityManager.getTransaction().commit();
+        persistClubMember(clubMember);
     }
 
     public void updateClubMember(ClubMember clubMember){

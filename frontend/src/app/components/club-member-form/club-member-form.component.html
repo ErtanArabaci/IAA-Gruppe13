@@ -74,6 +74,10 @@
       Datum Eintritt: <input type="date"><br>
     </label>
     <label>
+      IBAN:
+      <input name="iban" type="string" [(ngModel)]="clubMember.iban"><br>
+    </label>
+    <label>
       Mitgliedsart:
 
       <select [(ngModel)]="clubMember.membership_type" name="membership_Type" id="dropDownMenuMemberType"

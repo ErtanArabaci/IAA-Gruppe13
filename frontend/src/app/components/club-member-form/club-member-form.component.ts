@@ -3,11 +3,10 @@ import {ClubMember} from "../../model/clubMember";
 import {ActivatedRoute} from '@angular/router';
 import {Location} from '@angular/common';
 import {ClubMemberService} from "../../services/club-member.service";
-import { CommonModule } from '@angular/common';
-import { BrowserModule } from '@angular/platform-browser';
+import {CommonModule} from '@angular/common';
+import {BrowserModule} from '@angular/platform-browser';
 import {MembershipType} from "../../model/membership-type.enum";
 import {isNumeric} from "rxjs/internal-compatibility";
-
 
 
 @Component({
@@ -18,6 +17,8 @@ import {isNumeric} from "rxjs/internal-compatibility";
 
 export class ClubMemberFormComponent implements OnInit {
   keys = Object.keys;
+  clubMembers: ClubMember[] = [];
+
   clubMember: ClubMember = {
     clubMemberId: 0,
     clubMemberName: "",
@@ -31,7 +32,7 @@ export class ClubMemberFormComponent implements OnInit {
     annualPaymentList: "",
     iban: "",
     firstEnteredFamilyClubMemberId: 0
-      };
+  };
   membershipTypeEnum = MembershipType;
 
   @Output() cancel = new EventEmitter();
@@ -47,11 +48,18 @@ export class ClubMemberFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.getClubMember();
+    this.getClubMembers();
+  }
+
+  getClubMembers() {
+    this.clubMemberService.loadClubMembers().subscribe((clubMembers: ClubMember[]) => {
+      this.clubMembers = clubMembers;
+    });
   }
 
   getClubMember(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    if(isNumeric(id)){
+    if (isNumeric(id)) {
       this.isNew = false;
     }
     this.clubMemberService.getClubMember(id as unknown as number)
@@ -60,10 +68,10 @@ export class ClubMemberFormComponent implements OnInit {
         console.log(typeof clubMember.clubMemberBirthday)
         this.clubMember = {
           ...clubMember,
-          clubMemberBirthday:  new Date(clubMember.clubMemberBirthday),
+          clubMemberBirthday: new Date(clubMember.clubMemberBirthday),
           entranceDate: new Date(clubMember.entranceDate),
-          exitDate: new Date (clubMember.exitDate),
-          terminationDate: new Date (clubMember.terminationDate)
+          exitDate: new Date(clubMember.exitDate),
+          terminationDate: new Date(clubMember.terminationDate)
         };
 
         console.log(this.clubMember.clubMemberBirthday)
@@ -79,32 +87,49 @@ export class ClubMemberFormComponent implements OnInit {
     this.cancel.emit();
   }
 
-  updateClubMember(clubMember: ClubMember): void{
-    if(clubMember.clubMemberName && clubMember.clubMemberAdress && clubMember.clubMemberBirthday && clubMember.entranceDate && clubMember.membership_type ){
-      if(this.isNew){
+  updateClubMember(clubMember: ClubMember): void {
+    if (clubMember.clubMemberName && clubMember.clubMemberAdress && clubMember.clubMemberBirthday && clubMember.entranceDate && clubMember.membership_type) {
+      if (this.isNew) {
         console.log("Mitgliedsname: " + clubMember.clubMemberName)
+        console.log("club Member ID alt: " + clubMember.clubMemberId)
+
+        clubMember.clubMemberId = this.generateClubMemberId()
+
+        console.log("club Member ID generiert: " + clubMember.clubMemberId)
         this.clubMemberService.createClubMember(clubMember).subscribe();
-      }
-      else{
+      } else {
         this.clubMemberService.updateClubMember(clubMember).subscribe();
       }
-    }
-    else if(!clubMember.clubMemberName){
+    } else if (!clubMember.clubMemberName) {
       alert("Kein Name angegeben! Änderungen wurden nicht gespeichert.");
-    }
-    else if(!clubMember.clubMemberAdress){
+    } else if (!clubMember.clubMemberAdress) {
       alert("Keine Adresse angegeben! Änderungen wurden nicht gespeichert.");
-    }
-    else if(!clubMember.clubMemberBirthday){
+    } else if (!clubMember.clubMemberBirthday) {
       alert("Kein Geburstdatum angegeben! Änderungen wurden nicht gespeichert.");
-    }
-    else if(!clubMember.entranceDate){
+    } else if (!clubMember.entranceDate) {
       alert("Kein Eintrittsdatum angegeben! Änderungen wurden nicht gespeichert.");
-    }
-    else{
+    } else {
       alert("Keine Mitgliedsart angegeben! Änderungen wurden nicht gespeichert.");
     }
 
+  }
+
+  generateClubMemberId(): number{
+    let defaultValue = 9999;
+    let index = 1;
+    let list: number[] = []
+
+    for (let existingClubMember of this.clubMembers) {
+      list.push(existingClubMember.clubMemberId)
+    }
+
+    for(let investigatedId in this.clubMembers) {
+      index++;
+      if(!list.includes(index)){
+        return this.clubMember.clubMemberId = index
+      }
+    }
+    return defaultValue
   }
 
 }

@@ -43,7 +43,7 @@ public class ClubMemberOverviewController {
     }
 
     @PostMapping(path = "/club-members")
-    public void createClubMember(ClubMember clubMember){
+    public void createClubMember(@RequestBody ClubMember clubMember){
         this.clubMemberService.createClubMember(clubMember);
     }
 
