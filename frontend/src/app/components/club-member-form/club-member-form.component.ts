@@ -5,6 +5,8 @@ import {Location} from '@angular/common';
 import {ClubMemberService} from "../../services/club-member.service";
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
+import {MembershipType} from "../../model/membership-type.enum";
+
 
 
 @Component({
@@ -14,7 +16,9 @@ import { BrowserModule } from '@angular/platform-browser';
 })
 
 export class ClubMemberFormComponent implements OnInit {
+  keys = Object.keys;
   clubMember!: ClubMember;
+  membershipTypeEnum = MembershipType;
 
   @Output() cancel = new EventEmitter();
   @Output() save = new EventEmitter<ClubMember>();
@@ -23,7 +27,7 @@ export class ClubMemberFormComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private clubMemberService: ClubMemberService,
-    private location: Location
+    private location: Location,
   ) {
   }
 

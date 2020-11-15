@@ -12,6 +12,9 @@
     Datum Austritt:
     {{clubMember.terminationDate | date: 'dd.MM.yyyy'}}<br>
     Mitgliedsart:
+    <select class="form-control">
+      <option *ngFor="let type of keys(membershipTypeEnum)" [ngValue]="membershipTypeEnum[type]">{{type}}</option>
+    </select>
     <input name="membership_Type" type="string" [(ngModel)]="clubMember.membership_type"><br>
     Aktueller Jahresbeitrag:
     {{clubMember.annualFee}} €<br>
