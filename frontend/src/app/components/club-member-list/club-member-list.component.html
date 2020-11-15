@@ -1,13 +1,8 @@
 <div class="container">
 
-  <h3>Mitgliederliste</h3>
-
-
-  <input type="text" class="form-control" placeholder="Suche hier" [(ngModel)]="term">
-  <button routerLink="/club-member-create-form" class="btn btn-primary">Neues Mitglied</button>
-
-  <br>
-
+  <h2>Mitgliederübersicht</h2>
+  <input id="searchOperation" type="text" class="form-control" placeholder="Suche hier" [(ngModel)]="term">
+  <button id="createOperation" routerLink="/club-member-create-form" class="btn btn-primary">Neues Mitglied</button>
 
   <table class="table">
     <thead class="thead-light">
