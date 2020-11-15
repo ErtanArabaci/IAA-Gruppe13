@@ -29,9 +29,10 @@ export class ClubMemberService {
   }
 
 
-  updateClubMember(clubMember: ClubMember) {
+  updateClubMember(clubMember: ClubMember): Observable<ClubMember> {
     console.log("Update Member " + clubMember.clubMemberId + " with name " + clubMember.clubMemberName + "pls")
-    return this.http.put<ClubMember>('/rest/club-members/' + clubMember.clubMemberId, clubMember)
+    console.log("Birthday Date: " +clubMember.clubMemberBirthday);
+    return this.http.put<ClubMember>(`/rest/club-members`, clubMember)
   }
 
   deleteClubMember(id: number): Observable<HttpResponse<void>> {

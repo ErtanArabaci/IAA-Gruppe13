@@ -39,24 +39,11 @@ public class ClubMemberDAO {
     }
 
     public void updateClubMember(ClubMember clubMember){
-        entityManager.getTransaction().begin();
 
-        ClubMember existingClubMember = entityManager.find(ClubMember.class , clubMember.getClubMemberId());
 
-        System.out.println("Ursprungsname (altes Objekt) " + existingClubMember.getClubMemberName());
         System.out.println("Neuer Name: " + clubMember.getClubMemberName());
 
-        existingClubMember.setClubMemberName(clubMember.getClubMemberName());
-        existingClubMember.setClubMemberAdress(clubMember.getClubMemberAdress());
-        existingClubMember.setClubMemberBirthday(clubMember.getClubMemberBirthday());
-        existingClubMember.setEntranceDate(clubMember.getEntranceDate());
-        existingClubMember.setExitDate(clubMember.getExitDate());
-        existingClubMember.setTerminationDate(clubMember.getTerminationDate());
-        existingClubMember.setMembership_type(clubMember.getMembership_type());
-
-        System.out.println("Aktualisierter Name: " + existingClubMember.getClubMemberName());
-
-        entityManager.getTransaction().commit();
+        ClubMember attachedClubMember = entityManager.merge(clubMember);
 
     }
 

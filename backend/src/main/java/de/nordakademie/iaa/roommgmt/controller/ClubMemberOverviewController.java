@@ -36,8 +36,8 @@ public class ClubMemberOverviewController {
         return ResponseEntity.status(HttpStatus.OK).build();
     }
 
-    @PutMapping(path = "/club-members/{id}")
-    public void updateClubMember(@RequestParam ClubMember clubMember){
+    @PutMapping(path = "/club-members")
+    public void updateClubMember(@RequestBody ClubMember clubMember){
         System.out.println("Update clubMember " + clubMember.getClubMemberId());
         this.clubMemberService.updateClubMember(clubMember);
     }

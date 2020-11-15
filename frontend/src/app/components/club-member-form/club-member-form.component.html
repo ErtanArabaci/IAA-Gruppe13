@@ -5,13 +5,12 @@
     <input name="clubMemberName" type="string" [(ngModel)]="clubMember.clubMemberName"><br>
     Adresse:
     <input name="clubMemberAdress" type="string" [(ngModel)]="clubMember.clubMemberAdress"><br>
-    Geburtstag: <input id="birthDayDate" name="clubMemberBirthday" type="string"
-                       [(ngModel)]="clubMember.clubMemberBirthday"><br>
-    Datum Eintritt: <input name="entranceDate" type="string" [(ngModel)]="clubMember.entranceDate"><br>
+    Geburtstag: {{clubMember.clubMemberBirthday | date: 'dd.MM.yyyy'}}<br>
+    Datum Eintritt: {{clubMember.entranceDate | date: 'dd.MM.yyyy'}}<br>
     Datum Kündigung:
-    <input name="terminationDate" type="string" [(ngModel)]="clubMember.terminationDate"><br>
+    {{clubMember.exitDate | date: 'dd.MM.yyyy'}}<br>
     Datum Austritt:
-    <input name="exitDate" type="string" [(ngModel)]="clubMember.exitDate"><br>
+    {{clubMember.terminationDate | date: 'dd.MM.yyyy'}}<br>
     Mitgliedsart:
     <input name="membership_Type" type="string" [(ngModel)]="clubMember.membership_type"><br>
     Aktueller Jahresbeitrag:

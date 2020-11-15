@@ -3,6 +3,8 @@ import {ClubMember} from "../../model/clubMember";
 import {ActivatedRoute} from '@angular/router';
 import {Location} from '@angular/common';
 import {ClubMemberService} from "../../services/club-member.service";
+import { CommonModule } from '@angular/common';
+import { BrowserModule } from '@angular/platform-browser';
 
 
 @Component({
@@ -37,10 +39,10 @@ export class ClubMemberFormComponent implements OnInit {
         console.log(typeof clubMember.clubMemberBirthday)
         this.clubMember = {
           ...clubMember,
-          clubMemberBirthday: new Date(clubMember.clubMemberBirthday).toLocaleDateString('de-DE'),
-          entranceDate: new Date(clubMember.entranceDate).toLocaleDateString('de-DE'),
-          exitDate: new Date(clubMember.exitDate).toLocaleDateString('de-DE'),
-          terminationDate: new Date(clubMember.terminationDate).toLocaleDateString('de-DE')
+          clubMemberBirthday:  new Date(clubMember.clubMemberBirthday),
+          entranceDate: new Date(clubMember.entranceDate),
+          exitDate: new Date (clubMember.exitDate),
+          terminationDate: new Date (clubMember.terminationDate)
         };
 
         console.log(this.clubMember.clubMemberBirthday)
