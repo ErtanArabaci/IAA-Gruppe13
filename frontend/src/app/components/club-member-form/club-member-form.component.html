@@ -1,4 +1,4 @@
-<div class="container" *ngIf="clubMember">
+<div class="container" *ngIf="isNew == false">
   <form>
     <label>
       Mitgliedsnummer: {{ clubMember.clubMemberId}}<br>
@@ -49,20 +49,51 @@
       {{clubMember.annualFee}} €<br>
     </label>
     <button routerLink="/club-member-list" (click)="updateClubMember(clubMember)">Speichern</button>
-    <button routerLink="/club-member-list" (click)="deleteClubMember()">Löschen</button>
+    <button *ngIf="isNew == false" routerLink="/club-member-list" (click)="deleteClubMember()">Löschen</button>
     <button routerLink="/club-member-list" type="button" (click)="onCancel()">Abbrechen</button>
   </form>
 </div>
 
-<script>
-    console.log("Hallo");
-    document.getElementById("birthDayDate").innerHTML = intToDate(document.getElementById("birthDayDate"));
+<div *ngIf="isNew == true">
+  <h1> Neues Mitglied</h1>
+  <form>
+    <label>
+    </label>
+    <label>
+      Name:
+      <input name="clubMemberName" type="string" [(ngModel)]="clubMember.clubMemberName"><br>
+    </label>
+    <label>
+      Adresse:
+      <input name="clubMemberAdress" type="string" [(ngModel)]="clubMember.clubMemberAdress"><br>
+    </label>
+    <label>
+      Geburtstag: <input name="clubMemberBirthday " type="date" required><br>
+    </label>
+    <label>
+      Datum Eintritt: <input type="date"><br>
+    </label>
+    <label>
+      Mitgliedsart:
 
-
-    function intToDate(intValue) {
-        console.log("Integer Value: " + intValue);
-        console.log(Date(parseInt(intValue, 10) * 1000));
-        return Date(parseInt(intValue, 10) * 1000);
-    }
-
-</script>
+      <select [(ngModel)]="clubMember.membership_type" name="membership_Type" id="dropDownMenuMemberType"
+              class="form-control">
+        <option *ngFor="let type of keys(membershipTypeEnum)" [(ngValue)]="membershipTypeEnum[type]">{{type}}</option>
+      </select>
+      <br>
+    </label>
+    <div *ngIf="clubMember.membership_type=='Ermaessigt'">Aktueller Jahresbeitrag: 11€
+    </div>
+    <div *ngIf="clubMember.membership_type=='Vollmitglied'">Aktueller Jahresbeitrag: 22€ <!--[(ngModel)]="clubMember.annualFee===44"-->
+    </div>
+    <div *ngIf="clubMember.membership_type=='Foerdermitglied'">Aktueller Jahresbeitrag: 33€
+    </div>
+    <div *ngIf="clubMember.membership_type=='Jugendlich'">Aktueller Jahresbeitrag: 44€
+    </div>
+    <div *ngIf="clubMember.membership_type=='Familienmitglied'">Aktueller Jahresbeitrag: 55 €
+    </div>
+    <button routerLink="/club-member-list" (click)="updateClubMember(clubMember)">Speichern</button>
+    <button routerLink="/club-member-list" type="button" (click)="onCancel()">Abbrechen</button>
+    <button *ngIf="isNew == false" routerLink="/club-member-list" (click)="deleteClubMember()">Löschen</button>
+  </form>
+</div>
