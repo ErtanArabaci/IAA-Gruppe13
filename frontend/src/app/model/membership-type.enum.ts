@@ -1,7 +1,7 @@
 export enum MembershipType {
-  FULL = "FULL",
-  DISCOUNTED = "DISCOUNTED",
-  TEEN = "TEEN",
-  SPONSORING = "SPONSORING",
-  FAMILYDISCOUNT = "FAMILYDISCOUNT"
+  Vollmitglied = "Vollmitglied",
+  Ermäßigt = "Ermäßigt",
+  Jugendlich = "Jugendlich",
+  Fördermitglied = "Fördermitglied",
+  Familienmitglied = "Familienmitglied"
 }
