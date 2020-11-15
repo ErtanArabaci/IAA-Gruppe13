@@ -1,5 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {ClubMember} from "../../model/clubMember";
+import {ClubMemberService} from "../../services/club-member.service";
+import {Observable} from "rxjs";
 
 
 @Component({
@@ -8,13 +10,21 @@ import {ClubMember} from "../../model/clubMember";
   styleUrls: ['./club-member-list.component.css']
 })
 export class ClubMemberListComponent implements OnInit {
-  @Input() clubMembers: ClubMember[] = [];
+  clubMembers: ClubMember[] = [];
   @Output() selectClubMember = new EventEmitter<ClubMember>();
   term: any;
 
-  constructor() { }
+  constructor(    private clubMemberService: ClubMemberService,
+  ) { }
 
   ngOnInit(): void {
+    this.getClubMembers();
+  }
+
+  getClubMembers(){
+    this.clubMemberService.loadClubMembers().subscribe((clubMembers: ClubMember[]) => {
+      this.clubMembers = clubMembers;
+    });
   }
 
   onSelect(clubMember: ClubMember): void {
