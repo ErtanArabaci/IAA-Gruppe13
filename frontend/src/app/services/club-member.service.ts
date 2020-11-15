@@ -13,7 +13,7 @@ export class ClubMemberService {
   }
 
   createClubMember(clubMember: ClubMember) {
-    return this.http.post<ClubMember>('/rest/club-member-form/' + clubMember.clubMemberId, clubMember)
+    return this.http.post<ClubMember>('/rest/club-members', clubMember)
   }
 
   loadClubMembers(): Observable<ClubMember[]> {

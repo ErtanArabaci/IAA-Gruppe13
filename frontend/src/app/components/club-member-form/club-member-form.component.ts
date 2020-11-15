@@ -6,6 +6,7 @@ import {ClubMemberService} from "../../services/club-member.service";
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import {MembershipType} from "../../model/membership-type.enum";
+import {isNumeric} from "rxjs/internal-compatibility";
 
 
 
@@ -17,12 +18,25 @@ import {MembershipType} from "../../model/membership-type.enum";
 
 export class ClubMemberFormComponent implements OnInit {
   keys = Object.keys;
-  clubMember!: ClubMember;
+  clubMember: ClubMember = {
+    clubMemberId: 0,
+    clubMemberName: "",
+    clubMemberAdress: "",
+    clubMemberBirthday: new Date,
+    entranceDate: new Date,
+    terminationDate: new Date,
+    exitDate: new Date,
+    membership_type: "",
+    annualFee: 0,
+    annualPaymentList: "",
+    iban: "",
+    firstEnteredFamilyClubMemberId: 0
+      };
   membershipTypeEnum = MembershipType;
 
   @Output() cancel = new EventEmitter();
   @Output() save = new EventEmitter<ClubMember>();
-
+  isNew: boolean = true;
 
   constructor(
     private route: ActivatedRoute,
@@ -37,6 +51,9 @@ export class ClubMemberFormComponent implements OnInit {
 
   getClubMember(): void {
     const id = this.route.snapshot.paramMap.get('id');
+    if(isNumeric(id)){
+      this.isNew = false;
+    }
     this.clubMemberService.getClubMember(id as unknown as number)
       .subscribe(clubMember => {
         console.log(clubMember)
@@ -63,7 +80,31 @@ export class ClubMemberFormComponent implements OnInit {
   }
 
   updateClubMember(clubMember: ClubMember): void{
-    this.clubMemberService.updateClubMember(clubMember).subscribe();
+    if(clubMember.clubMemberName && clubMember.clubMemberAdress && clubMember.clubMemberBirthday && clubMember.entranceDate && clubMember.membership_type ){
+      if(this.isNew){
+        console.log("Mitgliedsname: " + clubMember.clubMemberName)
+        this.clubMemberService.createClubMember(clubMember).subscribe();
+      }
+      else{
+        this.clubMemberService.updateClubMember(clubMember).subscribe();
+      }
+    }
+    else if(!clubMember.clubMemberName){
+      alert("Kein Name angegeben! Änderungen wurden nicht gespeichert.");
+    }
+    else if(!clubMember.clubMemberAdress){
+      alert("Keine Adresse angegeben! Änderungen wurden nicht gespeichert.");
+    }
+    else if(!clubMember.clubMemberBirthday){
+      alert("Kein Geburstdatum angegeben! Änderungen wurden nicht gespeichert.");
+    }
+    else if(!clubMember.entranceDate){
+      alert("Kein Eintrittsdatum angegeben! Änderungen wurden nicht gespeichert.");
+    }
+    else{
+      alert("Keine Mitgliedsart angegeben! Änderungen wurden nicht gespeichert.");
+    }
+
   }
 
 }

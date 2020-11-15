@@ -6,9 +6,9 @@ export interface ClubMember {
   entranceDate: Date;
   terminationDate: Date;
   exitDate: Date;
-  membership_type: any;
+  membership_type: String;
   annualFee: number;
   annualPaymentList: any;
   iban: string;
-  firstEnteredFamilyClubMember: any;
+  firstEnteredFamilyClubMemberId: number;
 }

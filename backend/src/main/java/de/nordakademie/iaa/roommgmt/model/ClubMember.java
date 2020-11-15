@@ -1,7 +1,5 @@
 package de.nordakademie.iaa.roommgmt.model;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -51,7 +49,7 @@ public class ClubMember implements Serializable {
     private String iban;
 
     @Column(name = "FIRST_ENTERED_FAMILYCLUBMEMBER")
-    private ClubMember firstEnteredFamilyClubMember;
+    private Long idOffirstEnteredFamilyClubMember;
 
 
     public Long getClubMemberId() {
@@ -144,12 +142,12 @@ public class ClubMember implements Serializable {
         this.iban = iban;
     }
 
-    public ClubMember getFirstEnteredFamilyClubMember() {
-        return firstEnteredFamilyClubMember;
+    public Long getidOfFirstEnteredFamilyClubMember() {
+        return idOffirstEnteredFamilyClubMember;
     }
 
-    public void setFirstEnteredFamilyClubMember(ClubMember firstEnteredFamilyClubMember) {
-        this.firstEnteredFamilyClubMember = firstEnteredFamilyClubMember;
+    public void setIdOffirstEnteredFamilyClubMember(ClubMember firstEnteredFamilyClubMember) {
+        this.idOffirstEnteredFamilyClubMember = idOffirstEnteredFamilyClubMember;
     }
 
 
