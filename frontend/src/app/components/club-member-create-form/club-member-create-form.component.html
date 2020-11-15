@@ -1,0 +1,18 @@
+testform
+<div class="container" *ngIf="clubMember">
+  t
+  <form>
+    Mitgliedsnummer: {{ clubMember.clubMemberId}}<br>
+    Name:
+    <input name="clubMemberName" type="string" [(ngModel)]="clubMember.clubMemberName"><br>
+    Adresse:
+    <input name="clubMemberAdress" type="string" [(ngModel)]="clubMember.clubMemberAdress"><br>
+    Geburtstag:     <input name="clubMemberBirthday "type="date"><br>
+    <br>
+    Datum Eintritt: <input type="date"><br>
+    Mitgliedsart:
+    <input name="membership_Type" type="string" [(ngModel)]="clubMember.membership_type"><br>
+    <button routerLink="/club-members"(click)="updateClubMember(clubMember)">Speichern</button>
+    <button routerLink="/club-members" type="button" (click)="onCancel()">Abbrechen</button>
+  </form>
+</div>
