@@ -1,17 +1,13 @@
-package de.nordakademie.iaa.roommgmt.controller;
+package de.nordakademie.iaa.clubmembermgt.controller;
 
-import de.nordakademie.iaa.roommgmt.model.ClubMember;
-import de.nordakademie.iaa.roommgmt.service.ClubMemberService;
+import de.nordakademie.iaa.clubmembermgt.model.ClubMember;
+import de.nordakademie.iaa.clubmembermgt.service.ClubMemberService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.inject.Inject;
-import javax.sound.midi.Soundbank;
 import java.util.List;
-
-import static org.springframework.web.bind.annotation.RequestMethod.DELETE;
-import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
 /**
  * REST controller for the clubMember entity.

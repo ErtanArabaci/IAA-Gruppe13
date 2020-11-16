@@ -1,4 +1,4 @@
-package de.nordakademie.iaa.roommgmt.model;
+package de.nordakademie.iaa.clubmembermgt.model;
 
 import javax.persistence.*;
 import java.io.Serializable;

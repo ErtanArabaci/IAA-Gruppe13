@@ -1,11 +1,11 @@
-package de.nordakademie.iaa.roommgmt.service;
+package de.nordakademie.iaa.clubmembermgt.service;
 
 /**
- * Exception throws if an entity could not be found.
+ * Exception indicating an already present entity.
  *
  * @author Stephan Anft
  */
-public class EntityNotFoundException extends Exception {
+public class EntityAlreadyPresentException extends Exception {
 
     /**
      * Serial version uid.
@@ -15,7 +15,7 @@ public class EntityNotFoundException extends Exception {
     /**
      * Default constructor.
      */
-    public EntityNotFoundException() {
+    public EntityAlreadyPresentException() {
         super();
     }
 
@@ -24,7 +24,7 @@ public class EntityNotFoundException extends Exception {
      *
      * @param message The message.
      */
-    public EntityNotFoundException(String message) {
+    public EntityAlreadyPresentException(String message) {
         super(message);
     }
 }

@@ -1,7 +1,7 @@
-package de.nordakademie.iaa.roommgmt.service;
+package de.nordakademie.iaa.clubmembermgt.service;
 
-import de.nordakademie.iaa.roommgmt.dao.ClubMemberDAO;
-import de.nordakademie.iaa.roommgmt.model.ClubMember;
+import de.nordakademie.iaa.clubmembermgt.dao.ClubMemberDAO;
+import de.nordakademie.iaa.clubmembermgt.model.ClubMember;
 import org.hibernate.exception.ConstraintViolationException;
 
 import javax.inject.Inject;

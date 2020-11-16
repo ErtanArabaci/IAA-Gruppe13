@@ -1,15 +1,12 @@
-package de.nordakademie.iaa.roommgmt.dao;
+package de.nordakademie.iaa.clubmembermgt.dao;
 
 
-import de.nordakademie.iaa.roommgmt.model.ClubMember;
-import org.hibernate.HibernateException;
+import de.nordakademie.iaa.clubmembermgt.model.ClubMember;
 import org.hibernate.exception.ConstraintViolationException;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
-import java.util.Iterator;
 import java.util.List;
 
 /**

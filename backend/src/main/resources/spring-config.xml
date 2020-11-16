@@ -10,7 +10,7 @@
 	<!-- Enable annotation config -->
 	<context:annotation-config/>
 	<mvc:annotation-driven/>
-	<context:component-scan base-package="de.nordakademie.iaa.roommgmt.controller"/>
+	<context:component-scan base-package="de.nordakademie.iaa.clubmembermgt.controller"/>
 
 	<!-- Data source -->
 	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource"
@@ -25,7 +25,7 @@
 	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="persistenceUnitName" value="NakDB"/>
 		<property name="dataSource" ref="dataSource"/>
-		<property name="packagesToScan" value="de.nordakademie.iaa.roommgmt.model"/>
+		<property name="packagesToScan" value="de.nordakademie.iaa.clubmembermgt.model"/>
 		<property name="jpaVendorAdapter">
 			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"/>
 		</property>
@@ -55,14 +55,14 @@
 
 	<!-- AOP configuration with pointcut -->
 	<aop:config>
-		<aop:pointcut id="serviceMethods" expression="execution(* de.nordakademie.iaa.roommgmt.service.*.*(..))"/>
+		<aop:pointcut id="serviceMethods" expression="execution(* de.nordakademie.iaa.clubmembermgt.service.*.*(..))"/>
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="serviceMethods"/>
 	</aop:config>
 
 	<!-- DAOs -->
-	<bean id="clubMemberDAO" class="de.nordakademie.iaa.roommgmt.dao.ClubMemberDAO"/>
+	<bean id="clubMemberDAO" class="de.nordakademie.iaa.clubmembermgt.dao.ClubMemberDAO"/>
 
 	<!-- Services -->
-	<bean id="clubMemberService" class="de.nordakademie.iaa.roommgmt.service.ClubMemberService"/>
+	<bean id="clubMemberService" class="de.nordakademie.iaa.clubmembermgt.service.ClubMemberService"/>
 
 </beans>
