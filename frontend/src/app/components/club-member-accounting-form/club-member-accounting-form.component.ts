@@ -12,6 +12,7 @@ import {isNumeric} from "rxjs/internal-compatibility";
 })
 export class ClubMemberAccountingFormComponent implements OnInit {
   annualPayments: AnnualPayment[] = [];
+  allAnnualPayments: AnnualPayment[] = [];
 
   annualPayment: AnnualPayment = {
     annualPaymentId: 0,
@@ -37,6 +38,12 @@ export class ClubMemberAccountingFormComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('id');
     this.annualPaymentService.loadAnnualPayments(id as unknown as number).subscribe((annualPayments: AnnualPayment[]) => {
       this.annualPayments = annualPayments;
+    });
+  }
+
+  getAllAnnualPayments(){
+    this.annualPaymentService.loadAllAnnualPayments().subscribe((allAnnualPayments: AnnualPayment[]) => {
+      this.allAnnualPayments = allAnnualPayments;
     });
   }
 
@@ -68,17 +75,9 @@ export class ClubMemberAccountingFormComponent implements OnInit {
     if (annualPayment.annualPaymentYear && annualPayment.annualPaymentFee && annualPayment.annualPaymentPaidFee) {
       if (this.isNew) {
         annualPayment.annualPaymentId = this.generateAnnualPaymentId();
-        this.annualPaymentService.getAnnualPaymentForNewAnnualPayment(this.annualPayment.clubMemberId);
+        this.annualPaymentService.getAnnualPayment(this.annualPayment.clubMemberId);
 
         this.annualPaymentService.createAnnualPayment(annualPayment).subscribe();
-      } else {
-        if (!this.isNew) {
-          if (this.validAnnualPaymentYear(annualPayment.annualPaymentYear)) {
-            this.annualPaymentService.updateAnnualPayment(annualPayment).subscribe();
-          } else {
-            alert("Zahlung im Jahr " + annualPayment.annualPaymentYear + " bereits vorhanden");
-          }
-        }
       }
     } else if (!annualPayment.annualPaymentYear) {
       alert("Kein Jahr angegeben! Änderungen wurden nicht gespeichert.");
@@ -90,24 +89,17 @@ export class ClubMemberAccountingFormComponent implements OnInit {
   }
 
   generateAnnualPaymentId(): number {
+    this.getAllAnnualPayments()
     let defaultValue = 9999;
-    let index = 1;
-    let list: number[] = []
-
-    for (let existingAnnualPayment of this.annualPayments) {
-      list.push(existingAnnualPayment.annualPaymentId)
+    console.log(this.allAnnualPayments)
+    try {
+      let lastId = this.allAnnualPayments[this.allAnnualPayments.length - 1].annualPaymentId;
+      lastId ++;
+      return  lastId
     }
-
-    for (let investigatedId in this.annualPayments) {
-      index++;
-      if (!list.includes(index)) {
-        return this.annualPayment.annualPaymentId = index
-      }
+    catch{
+      return defaultValue
     }
-    return defaultValue
   }
 
-  private validAnnualPaymentYear(annualPaymentYear: number) {
-    return true;
-  }
 }

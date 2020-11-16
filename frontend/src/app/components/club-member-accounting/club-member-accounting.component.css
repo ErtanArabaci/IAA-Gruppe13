@@ -1,4 +1,4 @@
-#searchOperation, #printButton, #backButton {
+#searchOperation, #printButton, #backButton, #createOperation {
   margin-bottom: 15px;
 }
 
@@ -14,14 +14,14 @@
   text-align: center;
 }
 
-#printButton, #backButton {
+#createOperation, #printButton, #backButton {
   width: 150px;
   border-radius: 10px;
   border-width: 2px;
   border-color: rgba(0, 0, 0, .26);
 }
 
-#backButton {
+#backButton, #printButton {
   margin-left: 10px;
 }
 

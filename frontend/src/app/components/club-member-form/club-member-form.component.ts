@@ -114,20 +114,14 @@ export class ClubMemberFormComponent implements OnInit {
 
   generateClubMemberId(): number {
     let defaultValue = 9999;
-    let index = 1;
-    let list: number[] = []
-
-    for (let existingClubMember of this.clubMembers) {
-      list.push(existingClubMember.clubMemberId)
+    try {
+      let lastId = this.clubMembers[this.clubMembers.length - 1].clubMemberId;
+      lastId ++;
+      return  lastId
     }
-
-    for (let investigatedId in this.clubMembers) {
-      index++;
-      if (!list.includes(index)) {
-        return this.clubMember.clubMemberId = index
-      }
+    catch{
+      return 9999
     }
-    return defaultValue
   }
 
   validTerminationDateAndExitDateCombination(terminationDate: Date, exitDate: Date): boolean {

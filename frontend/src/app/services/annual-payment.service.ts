@@ -12,16 +12,15 @@ export class AnnualPaymentService {
   constructor(private http: HttpClient) {
   }
 
+  loadAllAnnualPayments(): Observable<AnnualPayment[]> {
+    return this.http.get<AnnualPayment[]>('/rest/annual-payments');
+  }
   loadAnnualPayments(id: number): Observable<AnnualPayment[]> {
     return this.http.get<AnnualPayment[]>('/rest/annual-payments/club-member/' + id);
   }
 
   getAnnualPayment(id: number): Observable<AnnualPayment> {
     return this.http.get<AnnualPayment>('/rest/annual-payments/' + id);
-  }
-
-  getAnnualPaymentForNewAnnualPayment(id: number): Observable<AnnualPayment> {
-    return this.http.get<AnnualPayment>('/rest/annual-payments/new/' + id);
   }
 
   createAnnualPayment(annualPayment: AnnualPayment) {
