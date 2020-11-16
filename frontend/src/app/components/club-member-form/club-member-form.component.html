@@ -47,7 +47,7 @@
       {{clubMember.annualFee}} €<br>
     </label>
     <button routerLink="/club-member-list" (click)="updateClubMember(clubMember)">Speichern</button>
-    <button *ngIf="isNew == false" routerLink="/club-member-list" (click)="deleteClubMember()">Löschen</button>
+    <button *ngIf="isNew == false" routerLink="/club-member-list" (click)="deleteClubMember()">Mitglied Löschen</button>
     <button routerLink="/club-member-list" type="button" (click)="onCancel()">Abbrechen</button>
     </form>
 </div>
@@ -97,6 +97,5 @@
     </div>
     <button routerLink="/club-member-list" (click)="updateClubMember(clubMember)">Speichern</button>
     <button routerLink="/club-member-list" type="button" (click)="onCancel()">Abbrechen</button>
-    <button *ngIf="isNew == false" routerLink="/club-member-list" (click)="deleteClubMember()">Löschen</button>
   </form>
 </div>

@@ -10,5 +10,4 @@ export interface ClubMember {
   annualFee: number;
   annualPaymentList: any;
   iban: string;
-  firstEnteredFamilyClubMemberId: number;
 }

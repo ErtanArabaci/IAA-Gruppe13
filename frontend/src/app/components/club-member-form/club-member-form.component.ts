@@ -30,8 +30,7 @@ export class ClubMemberFormComponent implements OnInit {
     membership_type: "",
     annualFee: 0,
     annualPaymentList: "",
-    iban: "",
-    firstEnteredFamilyClubMemberId: 0
+    iban: ""
   };
   membershipTypeEnum = MembershipType;
 
@@ -98,7 +97,13 @@ export class ClubMemberFormComponent implements OnInit {
         console.log("club Member ID generiert: " + clubMember.clubMemberId)
         this.clubMemberService.createClubMember(clubMember).subscribe();
       } else {
-        this.clubMemberService.updateClubMember(clubMember).subscribe();
+        if (this.validExitDate(clubMember.exitDate)) {
+          if (this.validTerminationDateAndExitDateCombination(clubMember.terminationDate, clubMember.exitDate)) {
+            this.clubMemberService.updateClubMember(clubMember).subscribe();
+          }
+        } else {
+          alert("Austrittsdatum muss zum Jahresende (31.12) sein! Änderungen wurden nicht gespeichert.");
+        }
       }
     } else if (!clubMember.clubMemberName) {
       alert("Kein Name angegeben! Änderungen wurden nicht gespeichert.");
@@ -114,7 +119,7 @@ export class ClubMemberFormComponent implements OnInit {
 
   }
 
-  generateClubMemberId(): number{
+  generateClubMemberId(): number {
     let defaultValue = 9999;
     let index = 1;
     let list: number[] = []
@@ -123,13 +128,46 @@ export class ClubMemberFormComponent implements OnInit {
       list.push(existingClubMember.clubMemberId)
     }
 
-    for(let investigatedId in this.clubMembers) {
+    for (let investigatedId in this.clubMembers) {
       index++;
-      if(!list.includes(index)){
+      if (!list.includes(index)) {
         return this.clubMember.clubMemberId = index
       }
     }
     return defaultValue
   }
+
+  validTerminationDateAndExitDateCombination(terminationDate: Date, exitDate: Date): boolean {
+
+    console.log(terminationDate.toString().substring(5, 7))
+
+    if (terminationDate.toString().substring(0, 4) != exitDate.toString().substring(0, 4)) {
+      console.log("Invalid combination")
+      alert("Austrittsjahr entspricht nicht dem Kündigungsjahr oder es wurde kein Kündigungsdatum, bzw. Austrittsdatum, erfasst.")
+      return false
+    }
+    else if (terminationDate.toString().substring(5, 7) != "10" && terminationDate.toString().substring(5, 7) != "11" && terminationDate.toString().substring(5, 7) != "12") {
+      console.log("Invalid combination")
+      return true
+    } else {
+      alert("3 Monatige Kündigungsfrist zum Jahresende beachten")
+      return false
+    }
+
+    return false
+
+  }
+
+  validExitDate(date: Date): boolean {
+
+    console.log("validate date string: " + date.toString().substring(8, 15))
+
+    if (date.toString().substring(5, 10) == "12-31" || date.toString().substring(8, 15) == "01 1970") {
+      return true
+    } else {
+      return false
+    }
+  }
+
 
 }

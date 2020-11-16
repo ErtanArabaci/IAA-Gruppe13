@@ -47,9 +47,6 @@ public class ClubMember implements Serializable {
     @Column(name = "IBAN", nullable = false)
     private String iban;
 
-    @Column(name = "FIRST_ENTERED_FAMILYCLUBMEMBER")
-    private Long idOffirstEnteredFamilyClubMember;
-
 
     public Long getClubMemberId() {
         return clubMemberId;
@@ -139,14 +136,6 @@ public class ClubMember implements Serializable {
 
     public void setIban(String iban) {
         this.iban = iban;
-    }
-
-    public Long getidOfFirstEnteredFamilyClubMember() {
-        return idOffirstEnteredFamilyClubMember;
-    }
-
-    public void setIdOffirstEnteredFamilyClubMember(ClubMember firstEnteredFamilyClubMember) {
-        this.idOffirstEnteredFamilyClubMember = idOffirstEnteredFamilyClubMember;
     }
 
 
