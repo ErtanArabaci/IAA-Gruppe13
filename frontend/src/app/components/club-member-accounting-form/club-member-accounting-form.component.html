@@ -41,7 +41,7 @@
       <input name="annualPaymentPaidFee" type="number" [(ngModel)]="annualPayment.annualPaymentPaidFee"><br>
     </label><br>
     <button routerLink="/annual-payments/club-member" (click)="updateAnnualPayment(annualPayment)">Speichern</button>
-    <button routerLink="/club-member-accounting/{{annualPayment.clubMemberId}}" type="button" (click)="onCancel()">
+    <button routerLink="/club-member-list" type="button" (click)="onCancel()">
       Abbrechen
     </button>
   </form>

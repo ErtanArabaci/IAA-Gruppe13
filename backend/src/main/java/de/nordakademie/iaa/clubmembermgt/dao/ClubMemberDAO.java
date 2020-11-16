@@ -12,17 +12,27 @@ import java.util.List;
 /**
  * The clubMember DAO that manages all persistence functionality.
  *
- * @author Kim Bartikowski, Ertan Arabaci
+ * @author Kim Bartikowski, Ertan Arabaci, Torben Labs
  */
 @Transactional
 public class ClubMemberDAO {
 
     private EntityManager entityManager;
 
+    /**
+     * Saves entity in the data base
+     *
+     * @param clubMember the club member to be saved
+     */
     public void persistClubMember(ClubMember clubMember) throws ConstraintViolationException {
         entityManager.persist(clubMember);
     }
 
+    /**
+     * Saves entity in the data base
+     *
+     * @return clubMember the club member to be saved
+     */
     public List<ClubMember> listClubMembers() {
         return entityManager.createQuery("select clubMember from ClubMember clubMember").getResultList();
     }
