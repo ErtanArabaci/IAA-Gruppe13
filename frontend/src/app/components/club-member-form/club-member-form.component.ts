@@ -123,7 +123,7 @@ export class ClubMemberFormComponent implements OnInit {
 
   generateClubMemberId(): number {
     let defaultValue = 9999;
-    let index = 0;
+    let index = 1;
     let list: number[] = []
 
     for (let existingClubMember of this.clubMembers) {
