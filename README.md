@@ -1,11 +1,29 @@
-# Angular Repetitorium
+# Elmshorn Reitverein
 
-Enhält das Grundprojekt für die Angular-Repetitoriumsapplikation. Das Backend ist bereits
-fertig entwickelt und stellt die erforderlichen REST-Endpoints bereit.
+Enhält das Projekt der Angularapplikation
 
-## REST-Endpoints
+## Installationsanleitung
 
-* Lesen aller Räume: `GET /rest/rooms`
-* Anlegen eines neuen Raums: `POST /rest/rooms`
-* Aktualisieren eines Raums: `PUT /rest/rooms/{id}`
-* Löschen eines Raums: `DELETE /rest/rooms/{id}`
+1.    Im Frontend- Ordner angular/cli und bootstrap installieren
+
+a.    Npm install
+
+b.    Npm isntall @angular/cli -g
+
+c.     Npm install –save bootstrap
+
+2.    Tomcat 8.5.592 installieren
+
+a.    Run configuration hinzufügen (+Zeichen), dann Tomcat Server local auswählen
+
+b.    Tomcat Datei auswählen
+
+c.     Bei Reiter „Deployment“ auf fix klicken und dann angular-repetitorium-backend:war exploded auswählen
+
+d.    Applikation context löschen außer „/“ und dann Apply OK
+
+3.    Ng serve in den Terminal im frontend- Order eingeben
+
+4.    Tomcat & Angular Cli Frontend Server starten -> Run
+
+5.    Anwendung kann unter http://localhost:4200/ aufgerufen werden​

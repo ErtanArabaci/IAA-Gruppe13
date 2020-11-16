@@ -52,7 +52,7 @@ public class AnnualPaymentService {
     /**
      * calls dao to return an annual payment
      *
-     * @param annualPayment the id of the club member that is to be returned
+     * @param annualPayment to be created
      */
     public void createAnnualPayment(AnnualPayment annualPayment) {
         annualPaymentDAO.createAnnualPayment(annualPayment);
@@ -61,7 +61,7 @@ public class AnnualPaymentService {
     /**
      * calls dao to update an annual payment
      *
-     * @param annualPayment the id of the club member that is to be returned
+     * @param annualPayment to be updated
      */
     public void updateAnnualPayment(AnnualPayment annualPayment) {
         annualPaymentDAO.updateAnnualPayment(annualPayment);
@@ -70,7 +70,7 @@ public class AnnualPaymentService {
     /**
      * calls dao to delete an annual payment
      *
-     * @param id the id of the club member that is to be deleted
+     * @param id the id of the annual payment that is to be deleted
      */
     public void deleteAnnualPayment(Long id) {
         annualPaymentDAO.deleteAnnualPayment(id);
