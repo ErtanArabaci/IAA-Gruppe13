@@ -28,25 +28,17 @@ public class ClubMemberDAO {
     }
 
     public ClubMember loadClubMember(Long id) {
-        return entityManager.find(ClubMember.class , id);
+        return entityManager.find(ClubMember.class, id);
     }
 
-    public void createClubMember(ClubMember clubMember){
+    public void createClubMember(ClubMember clubMember) {
         persistClubMember(clubMember);
     }
 
-    public void updateClubMember(ClubMember clubMember){
+    public void updateClubMember(ClubMember clubMember)
+        {entityManager.merge(clubMember); }
 
-
-        System.out.println("Neuer Name: " + clubMember.getClubMemberName());
-
-        System.out.println("Kündigungsdatum: " + clubMember.getTerminationDate());
-
-        entityManager.merge(clubMember);
-
-    }
-
-    public void deleteClubMember(Long id){
+    public void deleteClubMember(Long id) {
         entityManager.remove(entityManager.find(ClubMember.class, id));
     }
 
@@ -55,7 +47,7 @@ public class ClubMemberDAO {
         this.entityManager = entityManager;
     }
 
-    public ClubMember loadEmptyClubMember(){
+    public ClubMember loadEmptyClubMember() {
         ClubMember clubMember = new ClubMember();
 
         return clubMember;

@@ -11,30 +11,23 @@ public class ClubMemberService {
 
     private ClubMemberDAO clubMemberDAO;
 
-    public void createRoom(ClubMember clubMember) throws EntityAlreadyPresentException {
-        try {
-            clubMemberDAO.persistClubMember(clubMember);
-        } catch (
-                ConstraintViolationException e) {
-            throw new EntityAlreadyPresentException();
-        }
-    }
-
-    public void createClubMember(ClubMember clubMember){
+    public void createClubMember(ClubMember clubMember) {
         clubMember.setExitDate(null);
         clubMember.setTerminationDate(null);
         clubMemberDAO.createClubMember(clubMember);
     }
 
-    public void updateClubMember(ClubMember clubMember){
+    public void updateClubMember(ClubMember clubMember) {
         clubMemberDAO.updateClubMember(clubMember);
     }
 
-    public void deleteClubMember(Long id){
+    public void deleteClubMember(Long id) {
         clubMemberDAO.deleteClubMember(id);
     }
 
-    public ClubMember loadEmptyClubMember(){return clubMemberDAO.loadEmptyClubMember();}
+    public ClubMember loadEmptyClubMember() {
+        return clubMemberDAO.loadEmptyClubMember();
+    }
 
 
     @SuppressWarnings("unchecked")

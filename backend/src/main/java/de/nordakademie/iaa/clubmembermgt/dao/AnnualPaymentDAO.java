@@ -33,4 +33,22 @@ public class AnnualPaymentDAO {
     }
 
 
+    public List<AnnualPayment> listAnnualPayments() {
+        return entityManager.createQuery("select annualPayment from AnnualPayment annualPayment").getResultList();
+    }
+
+    public void createAnnualPayment(AnnualPayment annualPayment) {
+        persistAnnualPayment(annualPayment);
+    }
+
+    public void updateAnnualPayment(AnnualPayment annualPayment)
+    {entityManager.merge(annualPayment); }
+
+    public void deleteAnnualPayment(Long id) {
+        entityManager.remove(entityManager.find(AnnualPayment.class, id));
+    }
+
+    public void persistAnnualPayment(AnnualPayment annualPayment) throws ConstraintViolationException {
+        entityManager.persist(annualPayment);
+    }
 }
