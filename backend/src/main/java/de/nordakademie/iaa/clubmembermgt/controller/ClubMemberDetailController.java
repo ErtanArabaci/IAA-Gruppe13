@@ -11,17 +11,33 @@ import javax.inject.Inject;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
+/**
+ * REST controller for the clubMember entity.
+ *
+ * @author Kim Bartikowski, Ertan Arabaci, Torben Labs
+ */
 @RestController
 public class ClubMemberDetailController {
 
     private ClubMemberService clubMemberService;
 
+    /**
+     * Gives a club members by id back
+     *
+     * @param id
+     * @return a specific club member by id
+     */
     @GetMapping("/club-member-form/{id}")
     public ClubMember loadClubMemberById(@PathVariable Long id) {
         return clubMemberService.loadClubMember(id);
 
     }
 
+    /**
+     * Loads a club member
+     *
+     * @return a specific club member by id
+     */
     @RequestMapping(path = "/club-member-form/{id}")
     public class ClubMemberOverviewController {
         @RequestMapping(method = GET)
