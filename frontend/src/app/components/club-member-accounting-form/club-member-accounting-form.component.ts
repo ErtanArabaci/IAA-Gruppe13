@@ -37,7 +37,6 @@ export class ClubMemberAccountingFormComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('id');
     this.annualPaymentService.loadAnnualPayments(id as unknown as number).subscribe((annualPayments: AnnualPayment[]) => {
       this.annualPayments = annualPayments;
-      console.log("Ich hole mir daten")
     });
   }
 
@@ -47,7 +46,6 @@ export class ClubMemberAccountingFormComponent implements OnInit {
     if (isNumeric(id)) {
       this.isNew = false;
     }
-    console.log("id" + id)
     this.annualPaymentService.getAnnualPayment(id as unknown as number)
       .subscribe(annualPayment => {
         this.annualPayment = {
@@ -69,7 +67,6 @@ export class ClubMemberAccountingFormComponent implements OnInit {
   updateAnnualPayment(annualPayment: AnnualPayment): void {
     if (annualPayment.annualPaymentYear && annualPayment.annualPaymentFee && annualPayment.annualPaymentPaidFee) {
       if (this.isNew) {
-        console.log("Neues PAyment Id generieren!")
         annualPayment.annualPaymentId = this.generateAnnualPaymentId();
         this.annualPaymentService.getAnnualPaymentForNewAnnualPayment(this.annualPayment.clubMemberId);
 
@@ -96,15 +93,12 @@ export class ClubMemberAccountingFormComponent implements OnInit {
     let defaultValue = 9999;
     let index = 1;
     let list: number[] = []
-    console.log("yolo")
 
     for (let existingAnnualPayment of this.annualPayments) {
       list.push(existingAnnualPayment.annualPaymentId)
-      console.log("existing payment ids: " + existingAnnualPayment.annualPaymentId)
     }
 
     for (let investigatedId in this.annualPayments) {
-      console.log("Index : " + investigatedId)
       index++;
       if (!list.includes(index)) {
         return this.annualPayment.annualPaymentId = index

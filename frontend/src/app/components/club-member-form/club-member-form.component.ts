@@ -85,12 +85,7 @@ export class ClubMemberFormComponent implements OnInit {
   updateClubMember(clubMember: ClubMember): void {
     if (clubMember.clubMemberName && clubMember.clubMemberAdress && clubMember.clubMemberBirthday && clubMember.entranceDate && clubMember.iban && clubMember.membership_type) {
       if (this.isNew) {
-        console.log("Mitgliedsname: " + clubMember.clubMemberName)
-        console.log("club Member ID alt: " + clubMember.clubMemberId)
-
-        clubMember.clubMemberId = this.generateClubMemberId()
-
-        console.log("club Member ID generiert: " + clubMember.clubMemberId)
+        clubMember.clubMemberId = this.generateClubMemberId();
         this.clubMemberService.createClubMember(clubMember).subscribe();
       } else {
         if (this.validExitDate(clubMember.exitDate)) {
@@ -136,29 +131,18 @@ export class ClubMemberFormComponent implements OnInit {
   }
 
   validTerminationDateAndExitDateCombination(terminationDate: Date, exitDate: Date): boolean {
-
-    console.log(terminationDate.toString().substring(5, 7))
-
     if (terminationDate.toString().substring(0, 4) != exitDate.toString().substring(0, 4)) {
-      console.log("Invalid combination")
       alert("Austrittsjahr entspricht nicht dem Kündigungsjahr oder es wurde kein Kündigungsdatum, bzw. Austrittsdatum erfasst.")
       return false
     } else if (terminationDate.toString().substring(5, 7) != "10" && terminationDate.toString().substring(5, 7) != "11" && terminationDate.toString().substring(5, 7) != "12") {
-      console.log("Invalid combination")
       return true
     } else {
       alert("3 Monatige Kündigungsfrist zum Jahresende beachten")
       return false
     }
-
-    return false
-
   }
 
   validExitDate(date: Date): boolean {
-
-    console.log("validate date string: " + date.toString().substring(8, 15))
-
     if (date.toString().substring(5, 10) == "12-31" || date.toString().substring(8, 15) == "01 1970") {
       return true
     } else {

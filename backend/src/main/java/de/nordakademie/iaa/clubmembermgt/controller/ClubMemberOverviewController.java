@@ -27,14 +27,12 @@ public class ClubMemberOverviewController {
 
     @DeleteMapping(path = "/club-members/{id}")
     public ResponseEntity<?> deleteClubMember(@PathVariable Long id) {
-        System.out.println("Delete clubMember " + id);
         this.clubMemberService.deleteClubMember(id);
         return ResponseEntity.status(HttpStatus.OK).build();
     }
 
     @PutMapping(path = "/club-members")
     public void updateClubMember(@RequestBody ClubMember clubMember) {
-        System.out.println("Update clubMember " + clubMember.getClubMemberId());
         this.clubMemberService.updateClubMember(clubMember);
     }
 
