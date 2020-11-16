@@ -1,6 +1,6 @@
 # Beschreibung der Klassen
 
-## RoomDAO
+## Clubmember & AnnualPaymentDAO
 
 Diese Klasse (ein sogenanntes Data Access Object) beinhaltet die Persistenzlogik
 für die Verwaltung der Räume. Die angebotenen Methoden erlauben das Erstellen,
