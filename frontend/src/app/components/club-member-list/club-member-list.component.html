@@ -29,8 +29,10 @@
       <td>{{ clubMember.clubMemberAdress}}</td>
       <td>{{ clubMember.clubMemberBirthday | date: 'dd.MM.yyyy'}}</td>
       <td>{{ clubMember.entranceDate | date: 'dd.MM.yyyy'}}</td>
-      <td>{{ clubMember.terminationDate | date: 'dd.MM.yyyy'}}</td>
-      <td>{{ clubMember.exitDate | date: 'dd.MM.yyyy'}}</td>
+      <td><div *ngIf="clubMember.terminationDate!=0">
+        {{ clubMember.terminationDate | date: 'dd.MM.yyyy'}}</div></td>
+      <td><div *ngIf="clubMember.exitDate!=0">
+        {{ clubMember.exitDate | date: 'dd.MM.yyyy'}}</div></td>
       <td>{{ clubMember.membership_type}}</td>
       <td id="editButton"> <a routerLink="/club-member-form/{{clubMember.clubMemberId}}"  class="btn btn-primary" ></a> </td>
       <td id="accountingButton"> <a routerLink="/club-member-accounting/{{clubMember.clubMemberId}}"  class="btn btn-primary" ></a> </td>

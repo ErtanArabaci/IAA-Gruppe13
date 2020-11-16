@@ -21,6 +21,8 @@ public class ClubMemberService {
     }
 
     public void createClubMember(ClubMember clubMember){
+        clubMember.setExitDate(null);
+        clubMember.setTerminationDate(null);
         clubMemberDAO.createClubMember(clubMember);
     }
 

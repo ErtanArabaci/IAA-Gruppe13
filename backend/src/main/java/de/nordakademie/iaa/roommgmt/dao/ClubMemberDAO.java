@@ -43,7 +43,9 @@ public class ClubMemberDAO {
 
         System.out.println("Neuer Name: " + clubMember.getClubMemberName());
 
-        ClubMember attachedClubMember = entityManager.merge(clubMember);
+        System.out.println("Kündigungsdatum: " + clubMember.getTerminationDate());
+
+        entityManager.merge(clubMember);
 
     }
 
