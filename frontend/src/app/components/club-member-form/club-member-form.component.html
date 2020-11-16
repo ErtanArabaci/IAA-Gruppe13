@@ -82,12 +82,13 @@
     <label>
       Mitgliedsart:
 
-      <select [(ngModel)]="clubMember.membership_type" name="membership_Type" id="dropDownMenuMemberType"
+      <select [(ngModel)]="clubMember.membership_type" name="membership_Type" id="dropDownMenuMemberTypeCreate"
               class="form-control">
         <option *ngFor="let type of keys(membershipTypeEnum)" [(ngValue)]="membershipTypeEnum[type]">{{type}}</option>
       </select>
       <br>
     </label>
+    <label>
     <div *ngIf="clubMember.membership_type=='Ermaessigt'">Aktueller Jahresbeitrag: 23€
     </div>
     <div *ngIf="clubMember.membership_type=='Vollmitglied'">Aktueller Jahresbeitrag: 25€
@@ -99,6 +100,7 @@
     </div>
     <div *ngIf="clubMember.membership_type=='Familienmitglied'">Aktueller Jahresbeitrag: 55 €
     </div>
+    </label>
     <button routerLink="/club-member-list" (click)="updateClubMember(clubMember)">Speichern</button>
     <button routerLink="/club-member-list" type="button" (click)="onCancel()">Abbrechen</button>
   </form>
