@@ -1,4 +1,4 @@
-#searchOperation, #printButton{
+#searchOperation, #printButton, #backButton{
   margin-bottom: 15px;
 }
 
@@ -10,11 +10,15 @@
   text-align: center;
 }
 
-#printButton{
+#printButton, #backButton{
   width: 150px;
   border-radius: 10px;
   border-width: 2px;
   border-color: rgba(0,0,0,.26);
+}
+
+#printButton{
+  margin-left: 10px;
 }
 
 @media print {
