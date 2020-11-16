@@ -111,7 +111,7 @@ export class ClubMemberFormComponent implements OnInit {
       alert("Kein Eintrittsdatum angegeben! Änderungen wurden nicht gespeichert.");
     } else if (!clubMember.iban) {
       alert("Keine IBAN angegeben! Änderungen wurden nicht gespeichert.");
-    }else {
+    } else {
       alert("Keine Mitgliedsart angegeben! Änderungen wurden nicht gespeichert.");
     }
 
@@ -143,8 +143,7 @@ export class ClubMemberFormComponent implements OnInit {
       console.log("Invalid combination")
       alert("Austrittsjahr entspricht nicht dem Kündigungsjahr oder es wurde kein Kündigungsdatum, bzw. Austrittsdatum erfasst.")
       return false
-    }
-    else if (terminationDate.toString().substring(5, 7) != "10" && terminationDate.toString().substring(5, 7) != "11" && terminationDate.toString().substring(5, 7) != "12") {
+    } else if (terminationDate.toString().substring(5, 7) != "10" && terminationDate.toString().substring(5, 7) != "11" && terminationDate.toString().substring(5, 7) != "12") {
       console.log("Invalid combination")
       return true
     } else {

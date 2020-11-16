@@ -1,40 +1,43 @@
-#searchOperation, #printButton, #backButton{
+#searchOperation, #printButton, #backButton {
   margin-bottom: 15px;
 }
 
-.table td{
+.table td {
   text-align: center;
 }
 
-.table th{
+.table th {
   text-align: center;
 }
 
-#headerPrint{
+#headerPrint {
   text-align: center;
 }
 
-#printButton, #backButton{
+#printButton, #backButton {
   width: 150px;
   border-radius: 10px;
   border-width: 2px;
-  border-color: rgba(0,0,0,.26);
+  border-color: rgba(0, 0, 0, .26);
 }
 
-#backButton{
+#backButton {
   margin-left: 10px;
 }
 
 @media print {
-  #printButton{
+  #printButton {
     visibility: hidden;
   }
-  #searchOperation{
+
+  #searchOperation {
     visibility: hidden;
   }
-  #backButton{
+
+  #backButton {
     visibility: hidden;
   }
+
   body * {
     background-color: white;
     height: 100%;

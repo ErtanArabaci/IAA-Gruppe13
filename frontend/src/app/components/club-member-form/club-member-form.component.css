@@ -1,15 +1,15 @@
-#dropDownMenuMemberType, #dropDownMenuMemberTypeCreate{
+#dropDownMenuMemberType, #dropDownMenuMemberTypeCreate {
   font-size: 0.85rem;
   width: 15%;
   display: inline-block;
   height: 30px;
 }
 
-label{
+label {
   display: block;
   margin-bottom: 12px;
 }
 
-button{
+button {
   margin-right: 6px;
 }

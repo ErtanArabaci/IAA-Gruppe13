@@ -5,7 +5,7 @@ import {Component} from '@angular/core';
   templateUrl: './club-member-app.component.html',
   styleUrls: ['./club-member-app.component.css']
 })
-export class ClubMemberAppComponent  {
+export class ClubMemberAppComponent {
   title = 'frontend';
 
 

@@ -5,38 +5,44 @@
   <button id="createOperation" routerLink="/club-member-form/new" class="btn btn-default">Neues Mitglied</button>
   <button onclick="window.print()" id="printButton" class="btn btn-default">Drucken</button>
 
-<div id="clubMemberOverview">
-  <h2 id="memberListText">Mitgliederliste</h2>
-  <table class="table" >
-    <thead class="thead-light">
-    <tr>
-      <th>Mitgliedsnummer</th>
-      <th>Name</th>
-      <th>Adresse</th>
-      <th>Geburtstag</th>
-      <th>Datum Eintritt</th>
-      <th>Datum Kündigung</th>
-      <th>Datum Austritt</th>
-      <th>Mitgliedsart</th>
-      <th>Mitglied bearbeiten</th>
-      <th>zur Buchhaltungsübersicht</th>
+  <div id="clubMemberOverview">
+    <h2 id="memberListText">Mitgliederliste</h2>
+    <table class="table">
+      <thead class="thead-light">
+      <tr>
+        <th>Mitgliedsnummer</th>
+        <th>Name</th>
+        <th>Adresse</th>
+        <th>Geburtstag</th>
+        <th>Datum Eintritt</th>
+        <th>Datum Kündigung</th>
+        <th>Datum Austritt</th>
+        <th>Mitgliedsart</th>
+        <th>Mitglied bearbeiten</th>
+        <th>zur Buchhaltungsübersicht</th>
 
-    </tr>
-    </thead>
-    <tr *ngFor="let clubMember of clubMembers | filter:term">
-      <td>{{ clubMember.clubMemberId}}</td>
-      <td>{{ clubMember.clubMemberName}}</td>
-      <td>{{ clubMember.clubMemberAdress}}</td>
-      <td>{{ clubMember.clubMemberBirthday | date: 'dd.MM.yyyy'}}</td>
-      <td>{{ clubMember.entranceDate | date: 'dd.MM.yyyy'}}</td>
-      <td><div *ngIf="clubMember.terminationDate!=0">
-        {{ clubMember.terminationDate | date: 'dd.MM.yyyy'}}</div></td>
-      <td><div *ngIf="clubMember.exitDate!=0">
-        {{ clubMember.exitDate | date: 'dd.MM.yyyy'}}</div></td>
-      <td>{{ clubMember.membership_type}}</td>
-      <td id="editButton"> <a routerLink="/club-member-form/{{clubMember.clubMemberId}}"  class="btn btn-primary" ></a> </td>
-      <td id="accountingButton"> <a routerLink="/club-member-accounting/{{clubMember.clubMemberId}}"  class="btn btn-primary" ></a> </td>
-    </tr>
-  </table>
-</div>
+      </tr>
+      </thead>
+      <tr *ngFor="let clubMember of clubMembers | filter:term">
+        <td>{{ clubMember.clubMemberId}}</td>
+        <td>{{ clubMember.clubMemberName}}</td>
+        <td>{{ clubMember.clubMemberAdress}}</td>
+        <td>{{ clubMember.clubMemberBirthday | date: 'dd.MM.yyyy'}}</td>
+        <td>{{ clubMember.entranceDate | date: 'dd.MM.yyyy'}}</td>
+        <td>
+          <div *ngIf="clubMember.terminationDate!=0">
+            {{ clubMember.terminationDate | date: 'dd.MM.yyyy'}}</div>
+        </td>
+        <td>
+          <div *ngIf="clubMember.exitDate!=0">
+            {{ clubMember.exitDate | date: 'dd.MM.yyyy'}}</div>
+        </td>
+        <td>{{ clubMember.membership_type}}</td>
+        <td id="editButton"><a routerLink="/club-member-form/{{clubMember.clubMemberId}}" class="btn btn-primary"></a>
+        </td>
+        <td id="accountingButton"><a routerLink="/club-member-accounting/{{clubMember.clubMemberId}}"
+                                     class="btn btn-primary"></a></td>
+      </tr>
+    </table>
+  </div>
 </div>

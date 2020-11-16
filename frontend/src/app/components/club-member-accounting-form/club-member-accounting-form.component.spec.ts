@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ClubMemberAccountingFormComponent } from './club-member-accounting-form.component';
+import {ClubMemberAccountingFormComponent} from './club-member-accounting-form.component';
 
 describe('ClubMemberAccountingFormComponent', () => {
   let component: ClubMemberAccountingFormComponent;
@@ -8,9 +8,9 @@ describe('ClubMemberAccountingFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ClubMemberAccountingFormComponent ]
+      declarations: [ClubMemberAccountingFormComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

@@ -1,4 +1,4 @@
-<div class="container" *ngIf="isNew == false" >
+<div class="container" *ngIf="isNew == false">
   <h1>Zahlung bearbeiten</h1>
   <form>
     <label>
@@ -13,9 +13,15 @@
       Bezahlt:
       <input name="annualPaymentPaidFee" type="number" [(ngModel)]="annualPayment.annualPaymentPaidFee"><br>
     </label><br>
-    <button routerLink="/club-member-accounting/{{annualPayment.clubMemberId}}" (click)="updateAnnualPayment(annualPayment)">Speichern</button>
-    <button *ngIf="isNew == false" routerLink="/club-member-accounting/{{annualPayment.clubMemberId}}" (click)="deleteAnnualPayment()">Zahlung Löschen</button>
-    <button routerLink="/club-member-accounting/{{annualPayment.clubMemberId}}" type="button" (click)="onCancel()">Abbrechen</button>
+    <button routerLink="/club-member-accounting/{{annualPayment.clubMemberId}}"
+            (click)="updateAnnualPayment(annualPayment)">Speichern
+    </button>
+    <button *ngIf="isNew == false" routerLink="/club-member-accounting/{{annualPayment.clubMemberId}}"
+            (click)="deleteAnnualPayment()">Zahlung Löschen
+    </button>
+    <button routerLink="/club-member-accounting/{{annualPayment.clubMemberId}}" type="button" (click)="onCancel()">
+      Abbrechen
+    </button>
   </form>
 </div>
 
@@ -35,6 +41,8 @@
       <input name="annualPaymentPaidFee" type="number" [(ngModel)]="annualPayment.annualPaymentPaidFee"><br>
     </label><br>
     <button routerLink="/annual-payments/club-member" (click)="updateAnnualPayment(annualPayment)">Speichern</button>
-    <button routerLink="/club-member-accounting/{{annualPayment.clubMemberId}}" type="button" (click)="onCancel()">Abbrechen</button>
+    <button routerLink="/club-member-accounting/{{annualPayment.clubMemberId}}" type="button" (click)="onCancel()">
+      Abbrechen
+    </button>
   </form>
 </div>

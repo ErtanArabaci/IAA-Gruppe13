@@ -21,11 +21,12 @@ export class ClubMemberAccountingComponent implements OnInit {
     private route: ActivatedRoute,
     private clubMemberService: ClubMemberService,
     private annualPaymentService: AnnualPaymentService
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
-  this.getClubMemberAccounting();
-  this.getAnnualPayments();
+    this.getClubMemberAccounting();
+    this.getAnnualPayments();
   }
 
   getClubMemberAccounting(): void {
@@ -36,7 +37,7 @@ export class ClubMemberAccountingComponent implements OnInit {
       });
   }
 
-  getAnnualPayments(){
+  getAnnualPayments() {
     const id = this.route.snapshot.paramMap.get('id');
     this.annualPaymentService.loadAnnualPayments(id as unknown as number).subscribe((annualPayments: AnnualPayment[]) => {
       this.annualPayments = annualPayments;

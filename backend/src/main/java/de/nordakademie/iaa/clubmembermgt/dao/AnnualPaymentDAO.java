@@ -18,14 +18,15 @@ public class AnnualPaymentDAO {
     }
 
 
-
     public List<AnnualPayment> listAnnualPaymentsForClubMemberId(Long refClubMemberId) {
-        System.out.println("Club Member Id for query: "+ refClubMemberId);
-        TypedQuery<AnnualPayment> annual = entityManager.createQuery("select annualPayment from AnnualPayment annualPayment where annualPayment.clubMemberId = ?1" , AnnualPayment.class);
+        System.out.println("Club Member Id for query: " + refClubMemberId);
+        TypedQuery<AnnualPayment> annual = entityManager.createQuery("select annualPayment from AnnualPayment annualPayment where annualPayment.clubMemberId = ?1", AnnualPayment.class);
         return annual.setParameter(1, refClubMemberId).getResultList();
     }
 
-    public AnnualPayment loadAnnualPayment(Long id) {return entityManager.find(AnnualPayment.class, id);}
+    public AnnualPayment loadAnnualPayment(Long id) {
+        return entityManager.find(AnnualPayment.class, id);
+    }
 
     @PersistenceContext
     public void setEntityManager(EntityManager entityManager) {
@@ -41,8 +42,9 @@ public class AnnualPaymentDAO {
         persistAnnualPayment(annualPayment);
     }
 
-    public void updateAnnualPayment(AnnualPayment annualPayment)
-    {entityManager.merge(annualPayment); }
+    public void updateAnnualPayment(AnnualPayment annualPayment) {
+        entityManager.merge(annualPayment);
+    }
 
     public void deleteAnnualPayment(Long id) {
         entityManager.remove(entityManager.find(AnnualPayment.class, id));

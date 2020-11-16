@@ -35,8 +35,9 @@ public class ClubMemberDAO {
         persistClubMember(clubMember);
     }
 
-    public void updateClubMember(ClubMember clubMember)
-        {entityManager.merge(clubMember); }
+    public void updateClubMember(ClubMember clubMember) {
+        entityManager.merge(clubMember);
+    }
 
     public void deleteClubMember(Long id) {
         entityManager.remove(entityManager.find(ClubMember.class, id));

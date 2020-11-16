@@ -14,7 +14,7 @@ public class AnnualPayment implements Serializable {
     @Id
     private Long annualPaymentId;
 
-    @Column (name = "CLUBMEMBER_ID", nullable = false)
+    @Column(name = "CLUBMEMBER_ID", nullable = false)
     private Long clubMemberId;
 
     @Column(name = "ANNUALPAYMENT_YEAR", nullable = false)
@@ -25,7 +25,6 @@ public class AnnualPayment implements Serializable {
 
     @Column(name = "ANNUALPAYMENT_PAID_FEE", nullable = false)
     private Long annualPaymentPaidFee;
-
 
 
     public Long getClubMemberId() {

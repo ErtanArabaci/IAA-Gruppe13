@@ -1,33 +1,33 @@
-#createOperation, #searchOperation, #printButton{
+#createOperation, #searchOperation, #printButton {
   margin-bottom: 15px;
 }
-#printButton{
+
+#printButton {
   margin-left: 30px;
 }
 
-.table td{
+.table td {
   text-align: center;
 }
 
-.table th{
+.table th {
   text-align: center;
 }
 
-#memberListText{
+#memberListText {
   text-align: center;
 }
 
-#createOperation, #printButton{
+#createOperation, #printButton {
   width: 150px;
   border-radius: 10px;
   border-width: 2px;
-  border-color: rgba(0,0,0,.26);
+  border-color: rgba(0, 0, 0, .26);
 }
 
 
-
 @media print {
-  #clubMemberOverview{
+  #clubMemberOverview {
     background-color: white;
     height: 100%;
     width: 100%;

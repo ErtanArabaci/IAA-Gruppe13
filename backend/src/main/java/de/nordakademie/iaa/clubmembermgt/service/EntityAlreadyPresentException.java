@@ -3,7 +3,7 @@ package de.nordakademie.iaa.clubmembermgt.service;
 /**
  * Exception indicating an already present entity.
  *
- * @author Stephan Anft
+ * @author Kim Bartikowski, Torben Labs, Ertan Arabaci
  */
 public class EntityAlreadyPresentException extends Exception {
 

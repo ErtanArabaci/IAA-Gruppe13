@@ -8,9 +8,9 @@ describe('ClubMemberAppComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ClubMemberAppComponent ]
+      declarations: [ClubMemberAppComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

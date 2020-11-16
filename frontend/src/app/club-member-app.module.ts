@@ -8,11 +8,11 @@ import {FormsModule} from "@angular/forms";
 import {ClubMemberFormComponent} from './components/club-member-form/club-member-form.component';
 import {ClubMemberAppRoutingModule} from './club-member-app-routing.module';
 import {Ng2SearchPipeModule} from "ng2-search-filter";
-import { ClubMemberAccountingComponent } from './components/club-member-accounting/club-member-accounting.component';
-import { NavComponent } from './components/nav/nav.component';
+import {ClubMemberAccountingComponent} from './components/club-member-accounting/club-member-accounting.component';
+import {NavComponent} from './components/nav/nav.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import { MatIconModule } from '@angular/material/icon';
-import { ClubMemberAccountingFormComponent } from './components/club-member-accounting-form/club-member-accounting-form.component';
+import {MatIconModule} from '@angular/material/icon';
+import {ClubMemberAccountingFormComponent} from './components/club-member-accounting-form/club-member-accounting-form.component';
 
 
 @NgModule({
@@ -38,4 +38,5 @@ import { ClubMemberAccountingFormComponent } from './components/club-member-acco
   exports: [],
   bootstrap: [ClubMemberAppComponent]
 })
-export class ClubMemberAppModule { }
+export class ClubMemberAppModule {
+}

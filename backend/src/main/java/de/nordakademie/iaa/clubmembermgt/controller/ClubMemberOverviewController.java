@@ -33,18 +33,18 @@ public class ClubMemberOverviewController {
     }
 
     @PutMapping(path = "/club-members")
-    public void updateClubMember(@RequestBody ClubMember clubMember){
+    public void updateClubMember(@RequestBody ClubMember clubMember) {
         System.out.println("Update clubMember " + clubMember.getClubMemberId());
         this.clubMemberService.updateClubMember(clubMember);
     }
 
     @PostMapping(path = "/club-members")
-    public void createClubMember(@RequestBody ClubMember clubMember){
+    public void createClubMember(@RequestBody ClubMember clubMember) {
         this.clubMemberService.createClubMember(clubMember);
     }
 
     @GetMapping(path = "/empty-club-member")
-    public ClubMember loadEmptyClubMember(){
+    public ClubMember loadEmptyClubMember() {
         return clubMemberService.loadEmptyClubMember();
     }
 

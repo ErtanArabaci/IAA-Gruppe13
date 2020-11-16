@@ -14,14 +14,15 @@ export class ClubMemberListComponent implements OnInit {
   @Output() selectClubMember = new EventEmitter<ClubMember>();
   term: any;
 
-  constructor(    private clubMemberService: ClubMemberService,
-  ) { }
+  constructor(private clubMemberService: ClubMemberService,
+  ) {
+  }
 
   ngOnInit(): void {
     this.getClubMembers();
   }
 
-  getClubMembers(){
+  getClubMembers() {
     this.clubMemberService.loadClubMembers().subscribe((clubMembers: ClubMember[]) => {
       this.clubMembers = clubMembers;
     });

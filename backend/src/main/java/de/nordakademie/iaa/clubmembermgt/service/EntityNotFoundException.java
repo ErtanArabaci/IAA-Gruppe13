@@ -3,7 +3,7 @@ package de.nordakademie.iaa.clubmembermgt.service;
 /**
  * Exception throws if an entity could not be found.
  *
- * @author Stephan Anft
+ * @author Kim Bartikowski, Torben Labs, Ertan Arabaci
  */
 public class EntityNotFoundException extends Exception {
 
