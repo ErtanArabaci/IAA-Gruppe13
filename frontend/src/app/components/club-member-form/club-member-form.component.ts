@@ -123,7 +123,7 @@ export class ClubMemberFormComponent implements OnInit {
 
   generateClubMemberId(): number {
     let defaultValue = 9999;
-    let index = 1;
+    let index = 0;
     let list: number[] = []
 
     for (let existingClubMember of this.clubMembers) {
@@ -145,7 +145,7 @@ export class ClubMemberFormComponent implements OnInit {
 
     if (terminationDate.toString().substring(0, 4) != exitDate.toString().substring(0, 4)) {
       console.log("Invalid combination")
-      alert("Austrittsjahr entspricht nicht dem Kündigungsjahr oder es wurde kein Kündigungsdatum, bzw. Austrittsdatum, erfasst.")
+      alert("Austrittsjahr entspricht nicht dem Kündigungsjahr oder es wurde kein Kündigungsdatum, bzw. Austrittsdatum erfasst.")
       return false
     }
     else if (terminationDate.toString().substring(5, 7) != "10" && terminationDate.toString().substring(5, 7) != "11" && terminationDate.toString().substring(5, 7) != "12") {
