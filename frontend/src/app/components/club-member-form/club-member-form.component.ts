@@ -117,10 +117,12 @@ export class ClubMemberFormComponent implements OnInit {
     try {
       let lastId = this.clubMembers[this.clubMembers.length - 1].clubMemberId;
       lastId ++;
+
       return  lastId
     }
     catch{
       return defaultValue;
+
     }
   }
 
