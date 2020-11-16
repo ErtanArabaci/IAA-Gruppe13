@@ -182,10 +182,6 @@ export class ClubMemberFormComponent implements OnInit {
       case 'Foerdermitglied':
         this.clubMember.annualFee = 10;
         break;
-
-
-
-
     }
   }
 }

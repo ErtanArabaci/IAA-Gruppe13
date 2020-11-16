@@ -17,7 +17,7 @@ public class ClubMemberAccountingController {
     private ClubMemberService clubMemberService;
 
     @GetMapping("/club-member-accounting/{id}")
-    ClubMember one(@PathVariable Long id) {
+    ClubMember loadClubMember(@PathVariable Long id) {
         System.out.println(id);
         return clubMemberService.loadClubMember(id);
 
