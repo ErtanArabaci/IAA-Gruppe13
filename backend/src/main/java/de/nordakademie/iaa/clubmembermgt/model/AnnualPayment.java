@@ -1,37 +1,70 @@
 package de.nordakademie.iaa.clubmembermgt.model;
 
-public class AnnualPayment {
-    private int year;
-    private Float paidFee;
-    private Float annualFee;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import java.io.Serializable;
 
-    public AnnualPayment(int year, Float paidFee, Float annualFee) {
-        this.year = year;
-        this.paidFee = paidFee;
-        this.annualFee = annualFee;
+@Entity
+public class AnnualPayment implements Serializable {
+
+    private static final long serialVersionUID = 6925248180274039274L;
+
+
+    @Id
+    private Long annualPaymentId;
+
+    @Column (name = "CLUBMEMBER_ID", nullable = false)
+    private Long clubMemberId;
+
+    @Column(name = "ANNUALPAYMENT_YEAR", nullable = false)
+    private Long annualPaymentYear;
+
+    @Column(name = "ANNUALPAYMENT_FEE", nullable = false)
+    private Long annualPaymentFee;
+
+    @Column(name = "ANNUALPAYMENT_PAID_FEE", nullable = false)
+    private Long annualPaymentPaidFee;
+
+
+
+    public Long getClubMemberId() {
+        return clubMemberId;
     }
 
-    public int getYear() {
-        return year;
+    public void setClubMemberId(Long clubMemberId) {
+        this.clubMemberId = clubMemberId;
     }
 
-    public void setYear(int year) {
-        this.year = year;
+    public Long getAnnualPaymentId() {
+        return annualPaymentId;
     }
 
-    public Float getPaidFee() {
-        return paidFee;
+    public void setAnnualPaymentId(Long annualPaymentId) {
+        this.annualPaymentId = annualPaymentId;
     }
 
-    public void setPaidFee(Float paidFee) {
-        this.paidFee = paidFee;
+    public Long getAnnualPaymentYear() {
+        return annualPaymentYear;
     }
 
-    public Float getAnnualFee() {
-        return annualFee;
+    public void setAnnualPaymentYear(Long annualPaymentYear) {
+        this.annualPaymentYear = annualPaymentYear;
     }
 
-    public void setAnnualFee(Float annualFee) {
-        this.annualFee = annualFee;
+    public Long getAnnualPaymentFee() {
+        return annualPaymentFee;
+    }
+
+    public void setAnnualPaymentFee(Long annualPaymentFee) {
+        this.annualPaymentFee = annualPaymentFee;
+    }
+
+    public Long getAnnualPaymentPaidFee() {
+        return annualPaymentPaidFee;
+    }
+
+    public void setAnnualPaymentPaidFee(Long annualPaymentPaidFee) {
+        this.annualPaymentPaidFee = annualPaymentPaidFee;
     }
 }

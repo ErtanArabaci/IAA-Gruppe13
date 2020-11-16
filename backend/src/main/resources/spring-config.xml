@@ -61,8 +61,11 @@
 
 	<!-- DAOs -->
 	<bean id="clubMemberDAO" class="de.nordakademie.iaa.clubmembermgt.dao.ClubMemberDAO"/>
+	<bean id="annualPaymentDAO" class="de.nordakademie.iaa.clubmembermgt.dao.AnnualPaymentDAO"/>
+
 
 	<!-- Services -->
 	<bean id="clubMemberService" class="de.nordakademie.iaa.clubmembermgt.service.ClubMemberService"/>
+	<bean id="annualPaymentService" class="de.nordakademie.iaa.clubmembermgt.service.AnnualPaymentService"/>
 
 </beans>
