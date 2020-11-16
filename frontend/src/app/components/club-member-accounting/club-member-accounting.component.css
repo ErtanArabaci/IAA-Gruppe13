@@ -10,6 +10,10 @@
   text-align: center;
 }
 
+#headerPrint{
+  text-align: center;
+}
+
 #printButton, #backButton{
   width: 150px;
   border-radius: 10px;
@@ -22,7 +26,16 @@
 }
 
 @media print {
-  #clubMemberOverview{
+  #printButton{
+    visibility: hidden;
+  }
+  #searchOperation{
+    visibility: hidden;
+  }
+  #backButton{
+    visibility: hidden;
+  }
+  body * {
     background-color: white;
     height: 100%;
     width: 100%;
