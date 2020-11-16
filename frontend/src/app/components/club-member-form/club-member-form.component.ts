@@ -113,14 +113,14 @@ export class ClubMemberFormComponent implements OnInit {
   }
 
   generateClubMemberId(): number {
-    let defaultValue = 9999;
+    let defaultValue = 1;
     try {
       let lastId = this.clubMembers[this.clubMembers.length - 1].clubMemberId;
       lastId ++;
       return  lastId
     }
     catch{
-      return 9999
+      return defaultValue;
     }
   }
 

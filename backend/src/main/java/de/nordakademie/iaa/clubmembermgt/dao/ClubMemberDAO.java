@@ -29,22 +29,38 @@ public class ClubMemberDAO {
     }
 
     /**
-     * Saves entity in the data base
+     * Gives a list of clubmembers from the database
      *
-     * @return clubMember the club member to be saved
+     * @return a list of clubmembers
      */
     public List<ClubMember> listClubMembers() {
         return entityManager.createQuery("select clubMember from ClubMember clubMember").getResultList();
     }
 
+    /**
+     * Loads a single club member from the database
+     *
+     * @param id of the club member
+     * @return one club member
+     */
     public ClubMember loadClubMember(Long id) {
         return entityManager.find(ClubMember.class, id);
     }
 
+    /**
+     * Creates one club member
+     *
+     * @param clubMember
+     */
     public void createClubMember(ClubMember clubMember) {
         persistClubMember(clubMember);
     }
 
+    /**
+     * Updates the club member on the database
+     *
+     * @param clubMember
+     */
     public void updateClubMember(ClubMember clubMember) {
         entityManager.merge(clubMember);
     }
