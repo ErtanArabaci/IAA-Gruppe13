@@ -8,7 +8,7 @@ import {ClubMember} from "../model/clubMember";
   providedIn: 'root'
 })
 /**
- * The implementation of a service that canc reate, update and delete club members
+ * The implementation of a service that cancel, create, update and delete club members
  *
  * @author Kim Bartikowski, Ertan Arabaci, Torben Labs
  *
@@ -22,6 +22,7 @@ export class ClubMemberService {
    * creates a club member
    *
    * @param clubMember an empty club member
+   * @return ClubMember
    */
   createClubMember(clubMember: ClubMember) {
     return this.http.post<ClubMember>('/rest/club-members', clubMember)
