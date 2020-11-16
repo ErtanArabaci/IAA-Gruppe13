@@ -15,6 +15,8 @@ public class AnnualPaymentService {
         return annualPaymentDAO.listAnnualPaymentsForClubMemberId(clubMemberId);
     }
 
+    public AnnualPayment loadAnnualPaymentById(Long annualPaymentId){return annualPaymentDAO.loadAnnualPayment(annualPaymentId);}
+
     @Inject
     public void setAnnualPaymentDAO(AnnualPaymentDAO annualPaymentDAO) {
         this.annualPaymentDAO = annualPaymentDAO;

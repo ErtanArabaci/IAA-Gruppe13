@@ -16,11 +16,17 @@ public class AnnualPaymentController {
 
     private AnnualPaymentService annualPaymentService;
 
-     @GetMapping("/annual-payments/{id}")
+     @GetMapping("/annual-payments/club-member/{id}")
     public List<AnnualPayment> listAnnualPaymentsForClubMemberId(@PathVariable Long id){
          System.out.println("Given Club Member id: " + id);
          return annualPaymentService.listAnnualPaymentsForClubMemberId(id);
      }
+
+    @GetMapping("/annual-payments/{id}")
+    public AnnualPayment loadAnnualPaymentById(@PathVariable Long id){
+        System.out.println("Given  AnnualPayment: " + id);
+        return annualPaymentService.loadAnnualPaymentById(id);
+    }
 
      @Inject
      public void setAnnualPaymentService(AnnualPaymentService annualPaymentService) {
