@@ -16,7 +16,7 @@ export class ClubMemberAccountingFormComponent implements OnInit {
   annualPayment: AnnualPayment = {
     annualPaymentId: 0,
     clubMemberId: 0,
-    annualPaymentYear: 0,
+    annualPaymentYear: 2020,
     annualPaymentFee: 0,
     annualPaymentPaidFee: 0
   }
@@ -25,43 +25,41 @@ export class ClubMemberAccountingFormComponent implements OnInit {
   @Output() save = new EventEmitter<AnnualPayment>();
   isNew: boolean = true;
 
-  constructor(private route: ActivatedRoute, private annualPaymenService: AnnualPaymentService) {
+  constructor(private route: ActivatedRoute, private annualPaymentService: AnnualPaymentService) {
   }
 
   ngOnInit(): void {
-    this.getAnnualPayment();
     this.getAnnualPayments();
+    this.getAnnualPayment();
   }
 
   getAnnualPayments() {
     const id = this.route.snapshot.paramMap.get('id');
-
-    this.annualPaymenService.loadAnnualPayments(id as unknown as number).subscribe((annualPayment: AnnualPayment[]) => {
-      this.annualPayments = annualPayment;
+    this.annualPaymentService.loadAnnualPayments(id as unknown as number).subscribe((annualPayments: AnnualPayment[]) => {
+      this.annualPayments = annualPayments;
+      console.log("Ich hole mir daten")
     });
   }
 
 
   getAnnualPayment(): void {
-    console.log("Initiales Jahr: " + this.annualPayment.annualPaymentYear)
     const id = this.route.snapshot.paramMap.get('id');
     if (isNumeric(id)) {
       this.isNew = false;
     }
-    this.annualPaymenService.getAnnualPayment(id as unknown as number)
+    console.log("id" + id)
+    this.annualPaymentService.getAnnualPayment(id as unknown as number)
       .subscribe(annualPayment => {
-        this.annualPayment={
-          ...annualPayment
+        this.annualPayment = {
+          ...annualPayment,
         }
       });
-
-    console.log("Jahr von geladener Zahlung::  " + this.annualPayment.annualPaymentYear)
 
   }
 
   deleteAnnualPayment(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    this.annualPaymenService.deleteAnnualPayment(id as unknown as number).subscribe();
+    this.annualPaymentService.deleteAnnualPayment(id as unknown as number).subscribe();
   }
 
   onCancel(): void {
@@ -71,14 +69,18 @@ export class ClubMemberAccountingFormComponent implements OnInit {
   updateAnnualPayment(annualPayment: AnnualPayment): void {
     if (annualPayment.annualPaymentYear && annualPayment.annualPaymentFee && annualPayment.annualPaymentPaidFee) {
       if (this.isNew) {
+        console.log("Neues PAyment Id generieren!")
         annualPayment.annualPaymentId = this.generateAnnualPaymentId();
+        this.annualPaymentService.getAnnualPaymentForNewAnnualPayment(this.annualPayment.clubMemberId);
 
-        this.annualPaymenService.createAnnualPayment(annualPayment).subscribe();
+        this.annualPaymentService.createAnnualPayment(annualPayment).subscribe();
       } else {
-        if (this.validAnnualPaymentYear(annualPayment.annualPaymentYear)) {
-          this.annualPaymenService.updateAnnualPayment(annualPayment).subscribe();
-        } else {
-          alert("Zahlung im Jahr " + annualPayment.annualPaymentYear + " bereits vorhanden");
+        if (!this.isNew) {
+          if (this.validAnnualPaymentYear(annualPayment.annualPaymentYear)) {
+            this.annualPaymentService.updateAnnualPayment(annualPayment).subscribe();
+          } else {
+            alert("Zahlung im Jahr " + annualPayment.annualPaymentYear + " bereits vorhanden");
+          }
         }
       }
     } else if (!annualPayment.annualPaymentYear) {
@@ -94,12 +96,15 @@ export class ClubMemberAccountingFormComponent implements OnInit {
     let defaultValue = 9999;
     let index = 1;
     let list: number[] = []
+    console.log("yolo")
 
     for (let existingAnnualPayment of this.annualPayments) {
       list.push(existingAnnualPayment.annualPaymentId)
+      console.log("existing payment ids: " + existingAnnualPayment.annualPaymentId)
     }
 
     for (let investigatedId in this.annualPayments) {
+      console.log("Index : " + investigatedId)
       index++;
       if (!list.includes(index)) {
         return this.annualPayment.annualPaymentId = index

@@ -29,6 +29,12 @@ public class AnnualPaymentController {
         return annualPaymentService.loadAnnualPaymentById(id);
     }
 
+    @GetMapping("/annual-payments/new/{id}")
+    public void loadAnnualPaymentForNew(@PathVariable Long id) {
+        System.out.println("Bitte nichts laden!");
+    }
+
+
     @GetMapping("/annual-payments")
     public List<AnnualPayment> listAnnualPayments() {
         return annualPaymentService.listAnnualPayments();

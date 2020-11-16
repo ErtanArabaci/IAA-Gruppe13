@@ -63,8 +63,6 @@ export class ClubMemberFormComponent implements OnInit {
     }
     this.clubMemberService.getClubMember(id as unknown as number)
       .subscribe(clubMember => {
-        console.log(clubMember)
-        console.log(typeof clubMember.clubMemberBirthday)
         this.clubMember = {
           ...clubMember,
           clubMemberBirthday: new Date(clubMember.clubMemberBirthday),
@@ -72,8 +70,6 @@ export class ClubMemberFormComponent implements OnInit {
           exitDate: new Date(clubMember.exitDate),
           terminationDate: new Date(clubMember.terminationDate)
         };
-
-        console.log(this.clubMember.clubMemberBirthday)
       });
   }
 
@@ -172,4 +168,24 @@ export class ClubMemberFormComponent implements OnInit {
   }
 
 
+  onTypeChange(value: any) {
+    switch (value) {
+      case 'Ermaessigt':
+        this.clubMember.annualFee = 23;
+        break;
+      case 'Vollmitglied':
+        this.clubMember.annualFee = 25;
+        break;
+      case 'Jugendlich':
+        this.clubMember.annualFee = 15;
+        break;
+      case 'Foerdermitglied':
+        this.clubMember.annualFee = 10;
+        break;
+
+
+
+
+    }
+  }
 }

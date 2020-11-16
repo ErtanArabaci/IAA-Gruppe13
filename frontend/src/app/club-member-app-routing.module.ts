@@ -11,8 +11,10 @@ const routes: Routes = [
   {path: 'club-member-list', component: ClubMemberListComponent},
   {path: 'club-member-accounting', component: ClubMemberAccountingComponent},
   {path: 'club-member-accounting/:id', component: ClubMemberAccountingComponent},
+  {path: 'club-member-accounting/:id', component: ClubMemberAccountingComponent},
   {path: 'club-member-accounting-form', component: ClubMemberAccountingFormComponent},
   {path: 'club-member-accounting-form/:id', component: ClubMemberAccountingFormComponent},
+  {path: 'club-member-accounting-form/new/:id', component: ClubMemberAccountingFormComponent},
 
   {path:'', redirectTo:'club-member-list', pathMatch:'full'},
   {path:'**', redirectTo:'club-member-list'}

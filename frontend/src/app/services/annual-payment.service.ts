@@ -20,6 +20,10 @@ export class AnnualPaymentService {
     return this.http.get<AnnualPayment>('/rest/annual-payments/' + id);
   }
 
+  getAnnualPaymentForNewAnnualPayment(id: number): Observable<AnnualPayment> {
+    return this.http.get<AnnualPayment>('/rest/annual-payments/new/' + id);
+  }
+
   createAnnualPayment(annualPayment: AnnualPayment) {
     return this.http.post<AnnualPayment>('/rest/annual-payments', annualPayment)
   }
