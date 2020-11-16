@@ -18,13 +18,11 @@
       Datum Eintritt: {{clubMember.entranceDate | date: 'dd.MM.yyyy'}}<br>
     </label>
     <label>
-      Datum Kündigung:
-      {{clubMember.exitDate | date: 'dd.MM.yyyy'}}<br>
+      Datum Kündigung: <input name="clubMemberExit" type="date" [(ngModel)]="clubMember.terminationDate"> <br>
     </label>
-    <label>
-      Datum Austritt:
-      {{clubMember.terminationDate | date: 'dd.MM.yyyy'}}<br>
-    </label>
+      <label>
+        Datum Austritt: <input name="clubMemberExit" type="date" [(ngModel)]="clubMember.exitDate"> <br>
+      </label>
     <label>
       Mitgliedsart:
 
@@ -51,7 +49,7 @@
     <button routerLink="/club-member-list" (click)="updateClubMember(clubMember)">Speichern</button>
     <button *ngIf="isNew == false" routerLink="/club-member-list" (click)="deleteClubMember()">Löschen</button>
     <button routerLink="/club-member-list" type="button" (click)="onCancel()">Abbrechen</button>
-  </form>
+    </form>
 </div>
 
 <div *ngIf="isNew == true">
@@ -68,10 +66,10 @@
       <input name="clubMemberAdress" type="string" [(ngModel)]="clubMember.clubMemberAdress"><br>
     </label>
     <label>
-      Geburtstag: <input name="clubMemberBirthday " type="date" required><br>
+      Geburtstag: <input name="clubMemberBirthday" type="date" [(ngModel)]="clubMember.clubMemberBirthday"> <br>
     </label>
     <label>
-      Datum Eintritt: <input type="date"><br>
+      Datum Eintritt: <input name="clubMemberEntrance" type="date" [(ngModel)]="clubMember.entranceDate"> <br>
     </label>
     <label>
       IBAN:
@@ -88,7 +86,8 @@
     </label>
     <div *ngIf="clubMember.membership_type=='Ermaessigt'">Aktueller Jahresbeitrag: 23€
     </div>
-    <div *ngIf="clubMember.membership_type=='Vollmitglied'">Aktueller Jahresbeitrag: 25€ <!--[(ngModel)]="clubMember.annualFee===44"-->
+    <div *ngIf="clubMember.membership_type=='Vollmitglied'">Aktueller Jahresbeitrag: 25€
+      <!--[(ngModel)]="clubMember.annualFee===44"-->
     </div>
     <div *ngIf="clubMember.membership_type=='Foerdermitglied'">Aktueller Jahresbeitrag: 10€
     </div>
