@@ -24,6 +24,10 @@
         Datum Austritt: <input name="clubMemberExit" type="date" [(ngModel)]="clubMember.exitDate"> <br>
       </label>
     <label>
+      IBAN:
+      <input name="iban" type="string" [(ngModel)]="clubMember.iban"><br>
+    </label>
+    <label>
       Mitgliedsart:
 
       <select [(ngModel)]="clubMember.membership_type" name="membership_Type" id="dropDownMenuMemberType"

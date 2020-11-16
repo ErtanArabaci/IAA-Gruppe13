@@ -31,16 +31,15 @@
     <thead class="thead-light">
     <tr>
       <th>Jahr</th> <!-- Muss noch ein Jahr rein-->
-      <th>Mitgliedsart</th>
       <th>Beitrag</th>
       <th>Bezahlt</th>
     </tr>
     </thead>
-    <!--<tr *ngFor="let clubMember of clubMembers | filter:term">
-      <td>Jahr-Fortlaufend</td>
-      <td>Bezahlt-Beitrag</td>
-      <td>Betrag-Beitrag</td>
-    </tr>-->
+    <tr *ngFor="let annualPayment of annualPayments | filter:term">
+      <td>{{annualPayment.annualPaymentYear}}</td>
+      <td>{{annualPayment.annualPaymentFee}}€</td>
+      <td>{{annualPayment.annualPaymentPaidFee}}€</td>
+    </tr>
   </table>
 </div>
 

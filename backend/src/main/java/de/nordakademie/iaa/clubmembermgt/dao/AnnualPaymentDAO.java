@@ -17,6 +17,8 @@ public class AnnualPaymentDAO {
         entityManager.persist(annualPayment);
     }
 
+
+
     public List<AnnualPayment> listAnnualPaymentsForClubMemberId(Long refClubMemberId) {
         System.out.println("Club Member Id for query: "+ refClubMemberId);
         TypedQuery<AnnualPayment> annual = entityManager.createQuery("select annualPayment from AnnualPayment annualPayment where annualPayment.clubMemberId = ?1" , AnnualPayment.class);

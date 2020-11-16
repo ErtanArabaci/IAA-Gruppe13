@@ -2,6 +2,8 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {ClubMember} from "../../model/clubMember";
 import {ActivatedRoute} from "@angular/router";
 import {ClubMemberService} from "../../services/club-member.service";
+import {AnnualPayment} from "../../model/annualPayment";
+import {AnnualPaymentService} from "../../services/annual-payment.service";
 
 @Component({
   selector: 'app-club-member-accounting',
@@ -10,18 +12,20 @@ import {ClubMemberService} from "../../services/club-member.service";
 })
 export class ClubMemberAccountingComponent implements OnInit {
   clubMember!: ClubMember;
-  @Input() clubMembers: ClubMember[] = [];
+  annualPayments: AnnualPayment[] = [];
 
   @Output() selectClubMember = new EventEmitter<ClubMember>();
   term: any;
 
   constructor(
     private route: ActivatedRoute,
-    private clubMemberService: ClubMemberService
+    private clubMemberService: ClubMemberService,
+    private annualPaymentService: AnnualPaymentService
   ) { }
 
   ngOnInit(): void {
   this.getClubMemberAccounting();
+  this.getAnnualPayments();
   }
 
   getClubMemberAccounting(): void {
@@ -30,6 +34,13 @@ export class ClubMemberAccountingComponent implements OnInit {
       .subscribe(clubMember => {
         this.clubMember = clubMember;
       });
+  }
+
+  getAnnualPayments(){
+    const id = this.route.snapshot.paramMap.get('id');
+    this.annualPaymentService.loadAnnualPayments(id as unknown as number).subscribe((annualPayments: AnnualPayment[]) => {
+      this.annualPayments = annualPayments;
+    });
   }
 
 }

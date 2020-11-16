@@ -87,7 +87,7 @@ export class ClubMemberFormComponent implements OnInit {
   }
 
   updateClubMember(clubMember: ClubMember): void {
-    if (clubMember.clubMemberName && clubMember.clubMemberAdress && clubMember.clubMemberBirthday && clubMember.entranceDate && clubMember.membership_type) {
+    if (clubMember.clubMemberName && clubMember.clubMemberAdress && clubMember.clubMemberBirthday && clubMember.entranceDate && clubMember.iban && clubMember.membership_type) {
       if (this.isNew) {
         console.log("Mitgliedsname: " + clubMember.clubMemberName)
         console.log("club Member ID alt: " + clubMember.clubMemberId)
@@ -113,7 +113,9 @@ export class ClubMemberFormComponent implements OnInit {
       alert("Kein Geburstdatum angegeben! Änderungen wurden nicht gespeichert.");
     } else if (!clubMember.entranceDate) {
       alert("Kein Eintrittsdatum angegeben! Änderungen wurden nicht gespeichert.");
-    } else {
+    } else if (!clubMember.iban) {
+      alert("Keine IBAN angegeben! Änderungen wurden nicht gespeichert.");
+    }else {
       alert("Keine Mitgliedsart angegeben! Änderungen wurden nicht gespeichert.");
     }
 
