@@ -25,6 +25,8 @@ public class AnnualPaymentDAO {
         return annual.setParameter(1, refClubMemberId).getResultList();
     }
 
+    public AnnualPayment loadAnnualPayment(Long id) {return entityManager.find(AnnualPayment.class, id);}
+
     @PersistenceContext
     public void setEntityManager(EntityManager entityManager) {
         this.entityManager = entityManager;

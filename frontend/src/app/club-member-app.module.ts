@@ -12,7 +12,7 @@ import { ClubMemberAccountingComponent } from './components/club-member-accounti
 import { NavComponent } from './components/nav/nav.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { MatIconModule } from '@angular/material/icon';
-import { ClubMemberCreateFormComponent } from './components/club-member-create-form/club-member-create-form.component';
+import { ClubMemberAccountingFormComponent } from './components/club-member-accounting-form/club-member-accounting-form.component';
 
 
 @NgModule({
@@ -22,7 +22,7 @@ import { ClubMemberCreateFormComponent } from './components/club-member-create-f
     ClubMemberFormComponent,
     ClubMemberAccountingComponent,
     NavComponent,
-    ClubMemberCreateFormComponent,
+    ClubMemberAccountingFormComponent,
   ],
   imports: [
     CommonModule,
