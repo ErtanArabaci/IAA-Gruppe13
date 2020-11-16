@@ -65,6 +65,11 @@ public class ClubMemberDAO {
         entityManager.merge(clubMember);
     }
 
+    /**
+     * Deletes the club member from the database
+     *
+     * @param id of the club member to be deleted
+     */
     public void deleteClubMember(Long id) {
         entityManager.remove(entityManager.find(ClubMember.class, id));
     }
@@ -74,6 +79,11 @@ public class ClubMemberDAO {
         this.entityManager = entityManager;
     }
 
+    /**
+     * Loads an empty club member
+     *
+     * @return clubMember
+     */
     public ClubMember loadEmptyClubMember() {
         ClubMember clubMember = new ClubMember();
 
