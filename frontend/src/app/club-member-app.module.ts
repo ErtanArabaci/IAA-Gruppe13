@@ -1,7 +1,6 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {ClubMemberAppComponent} from './club-member-app.component';
-import {AppModule} from "./app.module";
 import {ClubMemberListComponent} from "./components/club-member-list/club-member-list.component";
 import {BrowserModule} from "@angular/platform-browser";
 import {HttpClientModule} from "@angular/common/http";
@@ -27,7 +26,6 @@ import { ClubMemberCreateFormComponent } from './components/club-member-create-f
   ],
   imports: [
     CommonModule,
-    AppModule,
     BrowserModule,
     HttpClientModule,
     FormsModule,

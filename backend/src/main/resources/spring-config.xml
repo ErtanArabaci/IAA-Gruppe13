@@ -60,15 +60,9 @@
 	</aop:config>
 
 	<!-- DAOs -->
-	<bean id="roomDAO" class="de.nordakademie.iaa.roommgmt.dao.RoomDAO"/>
-	<bean id="courseDAO" class="de.nordakademie.iaa.roommgmt.dao.CourseDAO"/>
-	<bean id="lectureDAO" class="de.nordakademie.iaa.roommgmt.dao.LectureDAO"/>
 	<bean id="clubMemberDAO" class="de.nordakademie.iaa.roommgmt.dao.ClubMemberDAO"/>
 
 	<!-- Services -->
-	<bean id="roomService" class="de.nordakademie.iaa.roommgmt.service.RoomService"/>
-	<bean id="courseService" class="de.nordakademie.iaa.roommgmt.service.CourseService"/>
-	<bean id="lectureService" class="de.nordakademie.iaa.roommgmt.service.LectureService"/>
 	<bean id="clubMemberService" class="de.nordakademie.iaa.roommgmt.service.ClubMemberService"/>
 
 </beans>
